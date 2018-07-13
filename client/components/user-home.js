@@ -2,13 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import history from '../history'
+import { companyName } from '../constants'
 
 /**
  * COMPONENT
  */
 export const UserHome = props => {
   const { email } = props
-  const company = 'Rogue Services'
 
   const launchCall = (evt) => {
     console.log(evt)
@@ -19,7 +19,7 @@ export const UserHome = props => {
   return (
     <div>
       <h3>Welcome, {email}</h3>
-      <button type="submit" onClick={launchCall}>{`Call ${company}`}</button>
+      <button type="submit" onClick={launchCall}>{`Call ${companyName}`}</button>
     </div>
   )
 }
