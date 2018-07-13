@@ -3,15 +3,20 @@ import { OTSession, OTPublisher, OTStreams, OTSubscriber } from 'opentok-react';
 import tokbox from '../tokboxConfig'
 
 
-const { apiKey, secret } = tokbox;
+const { apiKey } = tokbox;
 
 class VideoChat extends Component {
   state = {
-    videoUrl: '',
     joinChat: false,
     myAudioOn: false,
     myVideoOn: true,
     allAudioOn: true,
+  }
+
+  joinVideo = () => {
+    this.setState({
+      joinChat: !this.state.joinChat
+    })
   }
 
   render() {
@@ -34,7 +39,7 @@ class VideoChat extends Component {
                   token={this.props.token}
                   onError={(err) => console.log(err)}
                 >
-                  <div className="mute-btn-container">
+                  {/* <div className="mute-btn-container">
                     <button
                       type="submit"
                       className={this.state.myVideoOn ? "unMute-btn" : "mute-btn"}
@@ -62,7 +67,7 @@ class VideoChat extends Component {
                         alt="audio"
                       />
                     </button>
-                  </div>
+                  </div> */}
                   <OTPublisher
                     properties={{
                       width: 200,
