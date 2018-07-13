@@ -81,8 +81,8 @@ class VideoChat extends Component {
                   <OTStreams>
                     <OTSubscriber
                       properties={{
-                        width: 200,
-                        height: 200,
+                        width: 400,
+                        height: 400,
                         subscribeToAudio: this.state.allAudioOn,
                         subscribeToVideo: true,
                       }}
