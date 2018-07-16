@@ -1,5 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import history from '../history'
 import { companyName } from '../constants'
@@ -7,21 +6,34 @@ import { companyName } from '../constants'
 /**
  * COMPONENT
  */
-export const UserHome = props => {
-  const { email } = props
+class UserHome extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      roomId: '',
+      name: '',
+      sessionId: '',
+      token: ''
+    }
+  }
 
-  const launchCall = (evt) => {
+  launchCall = (evt) => {
     console.log(evt)
     let timeStart = Date.now()
     history.push(`/chat/${timeStart}`)
   }
 
-  return (
-    <div>
-      <h3>Welcome, {email}</h3>
-      <button type="submit" onClick={launchCall}>{`Call ${companyName}`}</button>
-    </div>
-  )
+  render() {
+    console.log('render props: ', this.props)
+    const { email } = this.props
+    return (
+      <div>
+        <h3>Welcome, {email}</h3>
+        <button type="submit" onClick={this.launchCall}>{`Call ${companyName}`}</button>
+      </div>
+    )
+  }
+
 }
 
 /**
@@ -30,14 +42,9 @@ export const UserHome = props => {
 const mapState = state => {
   return {
     email: state.user.email,
+    name: 'nando'
   }
 }
 
 export default connect(mapState)(UserHome)
 
-/**
- * PROP TYPES
- */
-UserHome.propTypes = {
-  email: PropTypes.string
-}
