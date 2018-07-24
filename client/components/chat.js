@@ -27,7 +27,6 @@ class Chat extends Component {
       }
       let token = opentok.generateToken(sessionId)
       this.setState({ token: token, sessionId: sessionId, blankVars: false })
-      /*,() => console.log(this.state.sessionId, this.state.blankVars, this.state.token))*/
     })
   }
 
@@ -39,13 +38,12 @@ class Chat extends Component {
           blankVars ?
             (<div>
               {this.createVars()}
-              <h3>Loading</h3>
+              <h3>Loading...</h3>
             </div>)
             :
             (
               <div>
                 <h1>Here is the VideoChat Component</h1>
-                {/* <button onClick={this.createVars} type="submit" /> */}
                 <VideoChat
                   createVars={this.createVars}
                   roomId={this.state.roomId}
