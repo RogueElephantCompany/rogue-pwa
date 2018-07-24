@@ -6,4 +6,5 @@
 export { default as Navbar } from './navbar'
 export { default as UserHome } from './user-home'
 export { default as Chat } from './chat'
+export { default as UserInfo } from './user-info'
 export { Login, Signup } from './auth-form'
