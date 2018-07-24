@@ -13,10 +13,12 @@ class VideoChat extends Component {
     allAudioOn: true,
   }
 
-  joinVideo = () => {
-    this.setState({
-      joinChat: !this.state.joinChat
-    })
+  joinVideo = /*async*/ () => {
+    // const { createVars } = this.props
+    // await createVars()
+    this.setState(prevState => ({
+      joinChat: !prevState.joinChat
+    }))
   }
 
   render() {

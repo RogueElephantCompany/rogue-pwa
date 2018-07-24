@@ -11,13 +11,14 @@ class Chat extends Component {
     roomId: '',
     name: '',
     sessionId: '',
-    token: ''
+    token: '',
+    blankVars: true
   }
 
-  makeItRain = () => {
+  createVars = () => {
     let sessionId
     const opentok = new OpenTok(apiKey, secret)
-    opentok.createSession({ mediaMode: "routed" }, async (error, session) => {
+    opentok.createSession({ mediaMode: "routed" }, (error, session) => {
       if (error) {
         console.log("Error creating session:", error)
       } else {
@@ -25,21 +26,36 @@ class Chat extends Component {
         console.log("Session ID: " + sessionId);
       }
       let token = opentok.generateToken(sessionId)
-      console.log(token)
-      await this.setState({ token: token, sessionId: sessionId }, () => console.log(this.state.sessionId, this.state.token))
+      this.setState({ token: token, sessionId: sessionId, blankVars: false })
+      /*,() => console.log(this.state.sessionId, this.state.blankVars, this.state.token))*/
     })
   }
 
   render() {
+    const { blankVars } = this.state
     return (
       <div>
-        <h1>Here is the VideoChat Component</h1>
-        <button onClick={this.makeItRain} type="submit" />
-        <VideoChat
-          roomId={this.state.roomId}
-          guestName={this.state.name}
-          sessionId={this.state.sessionId}
-          token={this.state.token} />
+        {
+          blankVars ?
+            (<div>
+              {this.createVars()}
+              <h3>Loading</h3>
+            </div>)
+            :
+            (
+              <div>
+                <h1>Here is the VideoChat Component</h1>
+                {/* <button onClick={this.createVars} type="submit" /> */}
+                <VideoChat
+                  createVars={this.createVars}
+                  roomId={this.state.roomId}
+                  guestName={this.state.name}
+                  sessionId={this.state.sessionId}
+                  token={this.state.token}
+                />
+              </div>
+            )
+        }
       </div>
     )
   }
