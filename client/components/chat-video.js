@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { OTSession, OTPublisher, OTStreams, OTSubscriber } from 'opentok-react';
 import tokbox from '../tokboxConfig'
+import { Button } from 'semantic-ui-react'
 
 
 const { apiKey } = tokbox;
@@ -13,9 +14,7 @@ class VideoChat extends Component {
     allAudioOn: true,
   }
 
-  joinVideo = /*async*/ () => {
-    // const { createVars } = this.props
-    // await createVars()
+  joinVideo = () => {
     this.setState(prevState => ({
       joinChat: !prevState.joinChat
     }))
@@ -28,11 +27,11 @@ class VideoChat extends Component {
           this.state.joinChat ?
             <div className="row">
               <div>
-                <button
+                <Button
+                  secondary
                   type="submit"
-                  className="btn"
                   onClick={this.joinVideo}
-                >Exit Video Chat</button>
+                  content='Exit Video Chat' />
               </div>
               <div>
                 <OTSession
@@ -95,12 +94,10 @@ class VideoChat extends Component {
             </div>
             :
             <div>
-              <button
+              <Button primary
                 type="submit"
-                className="btn"
-                id="join-vid-chat-btn"
                 onClick={this.joinVideo}
-              >Join Video Chat</button>
+                content='Join Video Chat' />
             </div>
         }
       </div>
