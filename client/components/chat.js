@@ -33,7 +33,7 @@ class Chat extends Component {
   render() {
     const { blankVars } = this.state
     return (
-      <div>
+      <div className="chat-div">
         {
           blankVars ?
             (<div>
