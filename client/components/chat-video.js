@@ -16,7 +16,26 @@ class VideoChat extends Component {
 
   joinVideo = () => {
     this.setState(prevState => ({
-      joinChat: !prevState.joinChat
+      joinChat: !prevState.joinChat,
+      myAudioOn: !prevState.myAudioOn
+    }))
+  }
+
+  toggleMyAudio = () => {
+    this.setState(prevState => ({
+      myAudioOn: !prevState.myAudioOn
+    }))
+  }
+
+  toggleMyVideo = () => {
+    this.setState(prevState => ({
+      myVideoOn: !prevState.myVideoOn
+    }))
+  }
+
+  toggleAllAudio = () => {
+    this.setState(prevState => ({
+      allAudioOn: !prevState.allAudioOn
     }))
   }
 
@@ -26,42 +45,42 @@ class VideoChat extends Component {
         {
           this.state.joinChat ?
             <div className="row">
-              <div>
+              <div className="video-screen">
                 <OTSession
                   apiKey={apiKey}
                   sessionId={this.props.sessionId}
                   token={this.props.token}
                   onError={(err) => console.log(err)}
                 >
-                  {/* <div className="mute-btn-container">
+                  <div className="mute-btn-container">
                     <button
-                    type="submit"
-                    className={this.state.myVideoOn ? "unMute-btn" : "mute-btn"}
-                    onClick={this.toggleMyVideo}
+                      type="submit"
+                      className={this.state.myVideoOn ? "unMute-btn" : "mute-btn"}
+                      onClick={this.toggleMyVideo}
                     >
-                    <img className="chat-icon" src={this.state.myVideoOn ? "/images/video-on.png" : "/images/video-off.png"}
-                    alt="video" />
+                      <img className="chat-icon" src={this.state.myVideoOn ? "/images/video-on.png" : "/images/video-off.png"}
+                        alt="video" />
                     </button>
                     <button
-                    type="submit"
-                    className={this.state.myAudioOn ? "unMute-btn" : "mute-btn"}
-                    onClick={this.toggleMyAudio}
-                    alt="mute"
+                      type="submit"
+                      className={this.state.myAudioOn ? "unMute-btn" : "mute-btn"}
+                      onClick={this.toggleMyAudio}
+                      alt="mute"
                     >
-                    <img className="chat-icon" src={this.state.myAudioOn ? "/images/mic-on.png" : "/images/mic-off.png"}
-                    alt="mic"
-                    />
+                      <img className="chat-icon" src={this.state.myAudioOn ? "/images/mic-on.png" : "/images/mic-off.png"}
+                        alt="mic"
+                      />
                     </button>
                     <button
-                    type="submit"
-                    className="unMute-btn"
-                    onClick={this.toggleAllAudio}
+                      type="submit"
+                      className="unMute-btn"
+                      onClick={this.toggleAllAudio}
                     >
-                    <img className="chat-icon" src={this.state.allAudioOn ? "/images/audio-on.png" : "/images/no-audio.png"}
-                    alt="audio"
-                    />
+                      <img className="chat-icon" src={this.state.allAudioOn ? "/images/audio-on.png" : "/images/no-audio.png"}
+                        alt="audio"
+                      />
                     </button>
-                  </div> */}
+                  </div>
                   <OTPublisher
                     properties={{
                       width: 200,
