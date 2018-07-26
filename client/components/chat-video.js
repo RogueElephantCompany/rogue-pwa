@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { OTSession, OTPublisher, OTStreams, OTSubscriber } from 'opentok-react';
 import tokbox from '../tokboxConfig'
 import { Button } from 'semantic-ui-react'
+import socket from '../socket'
 
 
 const { apiKey } = tokbox;
@@ -15,6 +16,10 @@ class VideoChat extends Component {
   }
 
   joinVideo = () => {
+    socket.emit('invite', {
+      sessionId: this.props.sessionId,
+      name: 'dog'
+    })
     this.setState(prevState => ({
       joinChat: !prevState.joinChat,
       myAudioOn: !prevState.myAudioOn
@@ -37,6 +42,16 @@ class VideoChat extends Component {
     this.setState(prevState => ({
       allAudioOn: !prevState.allAudioOn
     }))
+  }
+
+  componentDidMount() {
+    socket.on('invite', (data) => {
+      console.log(data)
+    })
+  }
+
+  componentWillUnmount() {
+    console.log('componenet unmounting...')
   }
 
   render() {
