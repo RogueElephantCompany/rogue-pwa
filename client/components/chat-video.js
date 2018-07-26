@@ -45,7 +45,7 @@ class VideoChat extends Component {
         {
           this.state.joinChat ?
             <div className="row">
-              <div className="video-screen">
+              <div /*className="video-screen"*/>
                 <OTSession
                   apiKey={apiKey}
                   sessionId={this.props.sessionId}
@@ -83,8 +83,8 @@ class VideoChat extends Component {
                   </div>
                   <OTPublisher
                     properties={{
-                      width: 200,
-                      height: 200,
+                      width: 300,
+                      height: 300,
                       publishAudio: this.state.myAudioOn,
                       publishVideo: this.state.myVideoOn,
                       name: this.props.guestName,
