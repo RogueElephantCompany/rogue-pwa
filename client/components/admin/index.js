@@ -3,6 +3,7 @@ import socket from '../../socket'
 import OpenTok from 'opentok'
 import tokbox from '../../tokboxConfig'
 import VideoChat from './video-chat'
+import CallList from './call-list'
 const { apiKey, secret } = tokbox
 
 class Admin extends Component {
@@ -36,9 +37,12 @@ class Admin extends Component {
   }
 
   render() {
+    console.log(Notification)
     return (
       <div>
         <h1>Here is the admin page</h1>
+        {/* <Notification /> */}
+        <CallList />
         <VideoChat sessionId={this.state.sessionId} token={this.state.token} />
       </div>
     )

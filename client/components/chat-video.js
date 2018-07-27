@@ -18,7 +18,7 @@ class VideoChat extends Component {
   joinVideo = () => {
     socket.emit('invite', {
       sessionId: this.props.sessionId,
-      name: 'dog'
+      roomId: this.props.roomId
     })
     this.setState(prevState => ({
       joinChat: !prevState.joinChat,
@@ -98,8 +98,8 @@ class VideoChat extends Component {
                   </div>
                   <OTPublisher
                     properties={{
-                      width: 300,
-                      height: 300,
+                      width: 100,
+                      height: 100,
                       publishAudio: this.state.myAudioOn,
                       publishVideo: this.state.myVideoOn,
                       name: this.props.guestName,

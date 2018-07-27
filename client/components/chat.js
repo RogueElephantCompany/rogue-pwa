@@ -17,6 +17,7 @@ class Chat extends Component {
   }
 
   createVars = () => {
+    let url = window.location.href
     let sessionId
     const opentok = new OpenTok(apiKey, secret)
     opentok.createSession({ mediaMode: "routed" }, (error, session) => {
@@ -27,9 +28,16 @@ class Chat extends Component {
         console.log("Session ID: " + sessionId);
       }
       let token = opentok.generateToken(sessionId)
-      this.setState({ token: token, sessionId: sessionId, blankVars: false })
+      this.setState({
+        token: token,
+        sessionId: sessionId,
+        roomId: url,
+        blankVars: false
+      })
     })
   }
+
+
 
   render() {
     const { blankVars } = this.state

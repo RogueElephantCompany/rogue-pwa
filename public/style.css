@@ -56,3 +56,62 @@ form div {
   position: absolute;
 margin-left: 300px;
 }
+
+/*Notification*/
+.notification {
+  background-color: rgb(165, 172, 183);
+  width: 160px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.notification p {
+  margin: 0px;
+  font-size: 16px;
+  height: 30px;
+  line-height: 200%;
+}
+
+
+.invite-button {
+  color: white;
+  width: 50%;
+  height: 30px;
+  border: none;
+  margin-top: 2px;
+  border: 1px black dashed;
+  /* margin-top: 3px; */
+}
+
+.invite-button:hover {
+  cursor: pointer;
+}
+
+.invite-button:focus {
+  outline: none;
+}
+
+#reject {
+  background-color: rgb(165, 14, 30);
+  border-radius: 0px 0px 5px 0px;
+}
+
+#accept {
+  background-color: rgb(14, 135, 8);
+  border-radius: 0px 0px 0px 5px;
+}
+#accept:focus {
+  background-color: rgba(14, 135, 8, .6)
+}
+
+#reject:focus {
+    background-color: rgba(165, 14, 14, 0.6)
+}
+
+.call-list {
+  display: flex;
+  flex-direction: row;
+  overflow-wrap: break-word;
+}
