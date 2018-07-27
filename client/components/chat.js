@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import VideoChat from './chat-video'
 import tokbox from '../tokboxConfig'
 import OpenTok from 'opentok'
-import socket from '../socket'
+// import socket from '../socket'
 
 const { apiKey, secret } = tokbox;
 
@@ -33,7 +33,7 @@ class Chat extends Component {
 
   render() {
     const { blankVars } = this.state
-    console.log('here is the socket: ', socket)
+    // console.log('here is the socket: ', socket)
     return (
       <div className="chat-div">
         {

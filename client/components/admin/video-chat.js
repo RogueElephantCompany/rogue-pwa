@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
-import { OTSession, OTPublisher, OTStreams, OTSubscriber } from 'opentok-react';
-import tokbox from '../tokboxConfig'
 import { Button } from 'semantic-ui-react'
-import socket from '../socket'
-
-
+import { OTSession, OTPublisher, OTStreams, OTSubscriber } from 'opentok-react';
+import tokbox from '../../tokboxConfig'
 const { apiKey } = tokbox
 
-class VideoChat extends Component {
+class Video extends Component {
   state = {
     joinChat: false,
     myAudioOn: false,
@@ -16,10 +13,6 @@ class VideoChat extends Component {
   }
 
   joinVideo = () => {
-    socket.emit('invite', {
-      sessionId: this.props.sessionId,
-      name: 'dog'
-    })
     this.setState(prevState => ({
       joinChat: !prevState.joinChat,
       myAudioOn: !prevState.myAudioOn
@@ -43,16 +36,6 @@ class VideoChat extends Component {
       allAudioOn: !prevState.allAudioOn
     }))
   }
-
-  // componentDidMount() {
-  //   socket.on('invite', (data) => {
-  //     console.log(data)
-  //   })
-  // }
-
-  // componentWillUnmount() {
-  //   console.log('componenet unmounting...')
-  // }
 
   render() {
     return (
@@ -98,8 +81,8 @@ class VideoChat extends Component {
                   </div>
                   <OTPublisher
                     properties={{
-                      width: 300,
-                      height: 300,
+                      width: 100,
+                      height: 100,
                       publishAudio: this.state.myAudioOn,
                       publishVideo: this.state.myVideoOn,
                       name: this.props.guestName,
@@ -139,4 +122,5 @@ class VideoChat extends Component {
   }
 }
 
-export default VideoChat
+export default Video
+
