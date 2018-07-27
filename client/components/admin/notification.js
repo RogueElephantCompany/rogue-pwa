@@ -1,16 +1,17 @@
 import React from 'react'
 import history from '../../history'
 
-const Notification = () => {
+const Notification = (props) => {
 
   const joinCall = () => {
     console.log('join the call')
     history.push('/')
   }
 
-  const rejectCall = () => [
+  const rejectCall = () => {
     console.log('reject the call')
-  ]
+    props.removeCall()
+  }
 
   return (
     <div className="notification">

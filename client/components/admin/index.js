@@ -42,7 +42,7 @@ class Admin extends Component {
       <div>
         <h1>Here is the admin page</h1>
         {/* <Notification /> */}
-        <CallList />
+        <CallList answerCal={this.answerCall} />
         <VideoChat sessionId={this.state.sessionId} token={this.state.token} />
       </div>
     )

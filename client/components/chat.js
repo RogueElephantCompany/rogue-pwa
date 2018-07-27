@@ -22,10 +22,10 @@ class Chat extends Component {
     const opentok = new OpenTok(apiKey, secret)
     opentok.createSession({ mediaMode: "routed" }, (error, session) => {
       if (error) {
-        console.log("Error creating session:", error)
+        console.error("Error creating session:", error)
       } else {
         sessionId = session.sessionId;
-        console.log("Session ID: " + sessionId);
+        // console.log("Session ID: " + sessionId);
       }
       let token = opentok.generateToken(sessionId)
       this.setState({
