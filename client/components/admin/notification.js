@@ -5,7 +5,8 @@ const Notification = (props) => {
 
   const joinCall = () => {
     console.log('join the call')
-    history.push('/')
+    // history.push('/')
+    props.removeCall()
   }
 
   const rejectCall = () => {
@@ -13,6 +14,7 @@ const Notification = (props) => {
     props.removeCall()
   }
 
+  console.log(props)
   return (
     <div className="notification">
       <p>You have a video call</p>

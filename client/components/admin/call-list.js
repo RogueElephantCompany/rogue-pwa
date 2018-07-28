@@ -21,18 +21,26 @@ class CallList extends Component {
   }
 
   removeCall = (sessionId) => {
+    let idx
+
     this.setState((prevState) => ({ calls: prevState.calls.slice(1) }))
   }
+
 
   render() {
     const { calls } = this.state
     const { answerCall } = this.props
+    console.log(this.state.calls)
     return (
       <div className="call-list">
         {
-          calls.map(call => (
+          calls.map((call, idx) => (
             <div key={call.sessionId}>
-              <Notification answerCall={answerCall} removeCall={this.removeCall} />
+              <Notification
+                sessionId={call.sessionId}
+                answerCall={answerCall}
+                removeCall={this.removeCall}
+                callIndex={idx} />
             </div>
           ))
         }

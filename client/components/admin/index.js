@@ -31,18 +31,15 @@ class Admin extends Component {
 
   componentDidMount() {
     socket.on('invite', (data) => {
-      console.log(data)
       this.answerCall(data)
     })
   }
 
   render() {
-    console.log(Notification)
     return (
       <div>
         <h1>Here is the admin page</h1>
-        {/* <Notification /> */}
-        <CallList answerCal={this.answerCall} />
+        <CallList answerCall={this.answerCall} />
         <VideoChat sessionId={this.state.sessionId} token={this.state.token} />
       </div>
     )
