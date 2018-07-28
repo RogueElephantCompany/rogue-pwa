@@ -28,9 +28,6 @@ class Routes extends Component {
             <Route path="/info" component={UserInfo} />
             {isAdmin && (
               <Switch>
-                <Route exact path="/" component={UserHome} />
-                <Route path="/chat/:id" component={Chat} />
-                <Route path="/info" component={UserInfo} />
                 <Route path="/admin" component={Admin} />
               </Switch>
             )

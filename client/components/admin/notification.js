@@ -14,7 +14,8 @@ const Notification = (props) => {
     props.removeCall()
   }
 
-  console.log(props)
+  console.log('props in Notification', props)
+  console.log('props.sessionId', props.sessionId)
   return (
     <div className="notification">
       <p>You have a video call</p>
@@ -22,13 +23,13 @@ const Notification = (props) => {
         className="invite-button"
         type="submit"
         id="accept"
-        onClick={joinCall}>
+        onClick={() => joinCall()}>
         Accept</button>
       <button
         className="invite-button"
         type="submit"
         id="reject"
-        onClick={rejectCall}>
+        onClick={() => rejectCall()}>
         Reject</button>
     </div>
   )
