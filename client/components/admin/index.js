@@ -4,6 +4,7 @@ import OpenTok from 'opentok'
 import tokbox from '../../tokboxConfig'
 import VideoChat from './video-chat'
 import CallList from './call-list'
+
 const {apiKey, secret} = tokbox
 
 class Admin extends Component {
@@ -31,18 +32,15 @@ class Admin extends Component {
 
   componentDidMount() {
     socket.on('invite', data => {
-      console.log(data)
       this.answerCall(data)
     })
   }
 
   render() {
-    console.log(Notification)
     return (
       <Fragment>
         <h1>Here is the admin page</h1>
-        {/* <Notification /> */}
-        <CallList answerCal={this.answerCall} />
+        <CallList answerCall={this.answerCall} />
         <VideoChat sessionId={this.state.sessionId} token={this.state.token} />
       </Fragment>
     )

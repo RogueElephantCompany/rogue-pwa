@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { OTSession, OTPublisher, OTStreams, OTSubscriber } from 'opentok-react';
 import tokbox from '../tokboxConfig'
 import { Button } from 'semantic-ui-react'
@@ -56,11 +56,11 @@ class VideoChat extends Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         {
           this.state.joinChat ?
             <div className="row">
-              <div /*className="video-screen"*/>
+              <div className="video-screen">
                 <OTSession
                   apiKey={apiKey}
                   sessionId={this.props.sessionId}
@@ -116,7 +116,7 @@ class VideoChat extends Component {
                       }}
                     />
                   </OTStreams>
-                </OTSession>
+                </div>
               </div>
               <div>
                 <Button
@@ -125,7 +125,7 @@ class VideoChat extends Component {
                   onClick={this.joinVideo}
                   content='Exit Video Chat' />
               </div>
-            </div>
+            </Fragment>
             :
             <div>
               <Button primary
