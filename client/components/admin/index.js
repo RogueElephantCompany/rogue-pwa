@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, {Component, Fragment} from 'react'
 import socket from '../../socket'
 import OpenTok from 'opentok'
 import tokbox from '../../tokboxConfig'
 import VideoChat from './video-chat'
 import CallList from './call-list'
-const { apiKey, secret } = tokbox
+const {apiKey, secret} = tokbox
 
 class Admin extends Component {
   state = {
@@ -12,25 +12,25 @@ class Admin extends Component {
     sessionId: ''
   }
 
-  answerCall = (data) => {
+  answerCall = data => {
     const opentok = new OpenTok(apiKey, secret)
     let sessionId
-    opentok.createSession({ mediaMode: "routed" }, (error, session) => {
+    opentok.createSession({mediaMode: 'routed'}, (error, session) => {
       if (error) {
-        console.log("Error creating session:", error)
+        console.log('Error creating session:', error)
       } else {
-        sessionId = data.sessionId;
-        console.log("Session ID: " + sessionId);
+        sessionId = data.sessionId
+        console.log('Session ID: ' + sessionId)
       }
       let token = opentok.generateToken(sessionId)
-      this.setState({ token: token, sessionId: sessionId }, () => {
+      this.setState({token: token, sessionId: sessionId}, () => {
         console.log(this.state.token, this.state.sessionId)
       })
     })
   }
 
   componentDidMount() {
-    socket.on('invite', (data) => {
+    socket.on('invite', data => {
       console.log(data)
       this.answerCall(data)
     })
@@ -39,15 +39,14 @@ class Admin extends Component {
   render() {
     console.log(Notification)
     return (
-      <div>
+      <Fragment>
         <h1>Here is the admin page</h1>
         {/* <Notification /> */}
         <CallList answerCal={this.answerCall} />
         <VideoChat sessionId={this.state.sessionId} token={this.state.token} />
-      </div>
+      </Fragment>
     )
   }
 }
 
 export default Admin
-

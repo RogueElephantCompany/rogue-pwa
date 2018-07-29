@@ -22,6 +22,6 @@ router.post('/:userId', (req, res, next) => {
   const {email} = req.body
   sequelize
     .query(`UPDATE users WHERE email = ${email}`)
-    .then(() => res.send(200))
-    .catch(() => res.send(500))
+    .then(() => res.status(200))
+    .catch(() => res.status(500))
 })

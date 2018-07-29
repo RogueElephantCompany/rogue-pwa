@@ -1,11 +1,10 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import VideoChat from './chat-video'
 import tokbox from '../tokboxConfig'
 import OpenTok from 'opentok'
 // import socket from '../socket'
 
-const { apiKey, secret } = tokbox;
-
+const {apiKey, secret} = tokbox
 
 class Chat extends Component {
   state = {
@@ -17,14 +16,15 @@ class Chat extends Component {
   }
 
   createVars = () => {
+    // use react-router here
     let url = window.location.href
     let sessionId
     const opentok = new OpenTok(apiKey, secret)
-    opentok.createSession({ mediaMode: "routed" }, (error, session) => {
+    opentok.createSession({mediaMode: 'routed'}, (error, session) => {
       if (error) {
-        console.error("Error creating session:", error)
+        console.error('Error creating session:', error)
       } else {
-        sessionId = session.sessionId;
+        sessionId = session.sessionId
         // console.log("Session ID: " + sessionId);
       }
       let token = opentok.generateToken(sessionId)
@@ -37,36 +37,31 @@ class Chat extends Component {
     })
   }
 
-
-
   render() {
-    const { blankVars } = this.state
+    const {blankVars} = this.state
     // console.log('here is the socket: ', socket)
     return (
       <div className="chat-div">
-        {
-          blankVars ?
-            (<div>
-              {this.createVars()}
-              <h3>Loading...</h3>
-            </div>)
-            :
-            (
-              <div>
-                <h1>Here is the VideoChat Component</h1>
-                <VideoChat
-                  createVars={this.createVars}
-                  roomId={this.state.roomId}
-                  guestName={this.state.name}
-                  sessionId={this.state.sessionId}
-                  token={this.state.token}
-                />
-              </div>
-            )
-        }
+        {blankVars ? (
+          <div>
+            {this.createVars()}
+            <h3>Loading...</h3>
+          </div>
+        ) : (
+          <div>
+            <h1>Here is the VideoChat Component</h1>
+            <VideoChat
+              createVars={this.createVars}
+              roomId={this.state.roomId}
+              guestName={this.state.name}
+              sessionId={this.state.sessionId}
+              token={this.state.token}
+            />
+          </div>
+        )}
       </div>
     )
   }
 }
 
-export default Chat;
+export default Chat

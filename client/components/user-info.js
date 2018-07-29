@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { states } from '../constants'
+import React, {Component, Fragment} from 'react'
+import {states} from '../constants'
 
 class UserInfo extends Component {
   state = {
@@ -10,49 +10,77 @@ class UserInfo extends Component {
     city: '',
     state: '',
     zip: '',
-    phone: '',
+    phone: ''
   }
 
   componentDidMount() {
     console.log('need to go fetch User Info')
   }
 
-  changeTextbox = (evt) => {
-    const { value, name } = evt.target
+  changeTextbox = evt => {
+    const {value, name} = evt.target
     console.log(name, value)
-    this.setState({ [name]: value }, () => { console.log(name, this.state[name]) })
+    this.setState({[name]: value}, () => {
+      console.log(name, this.state[name])
+    })
   }
 
-  formatPhoneNumber = (str) => {
+  formatPhoneNumber = str => {
     let prefix = str.slice(0, 3)
     let mid = str.slice(3, 6)
     let end = str.slice(6, 10)
     let formattedNumer = `(${prefix}) ${mid}-${end}`
     console.log(formattedNumer)
-    this.setState({ phone: formattedNumer })
+    this.setState({phone: formattedNumer})
   }
 
   render() {
     return (
-      <div>
+      <Fragment>
         <form>
-          <input type="text" placeholder="First Name" name="firstName" onChange={this.changeTextbox} />
-          <input type="text" placeholder="Last Name" name="lastName" onChange={this.changeTextbox} />
-          <input type="text" placeholder="Address Line 1" name="address1" onChange={this.changeTextbox} />
-          <input type="text" placeholder="Address Line 2" name="address2" onChange={this.changeTextbox} />
+          <input
+            type="text"
+            placeholder="First Name"
+            name="firstName"
+            onChange={this.changeTextbox}
+          />
+          <input
+            type="text"
+            placeholder="Last Name"
+            name="lastName"
+            onChange={this.changeTextbox}
+          />
+          <input
+            type="text"
+            placeholder="Address Line 1"
+            name="address1"
+            onChange={this.changeTextbox}
+          />
+          <input
+            type="text"
+            placeholder="Address Line 2"
+            name="address2"
+            onChange={this.changeTextbox}
+          />
           <input type="text" placeholder="City" name="city" onChange={this.changeTextbox} />
           <select name="state" onChange={this.changeTextbox}>
-            {
-              states.map(state => <option key={state} value={state}>{state}</option>)
-            }
+            {states.map(state => (
+              <option key={state} value={state}>
+                {state}
+              </option>
+            ))}
           </select>
           <input type="text" placeholder="Zip Code" name="zip" onChange={this.changeTextbox} />
-          <input type="text" placeholder="Phone Number" name="phone" onChange={this.changeTextbox} />
+          <input
+            type="text"
+            placeholder="Phone Number"
+            name="phone"
+            onChange={this.changeTextbox}
+          />
         </form>
-      </div>
+      </Fragment>
     )
   }
 }
 
 export default UserInfo
-
