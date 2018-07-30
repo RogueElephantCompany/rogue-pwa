@@ -27,10 +27,14 @@ class Routes extends Component {
             <Route path="/chat/:id" component={Chat} />
             <Route path="/info" component={UserInfo} />
             {isAdmin && (
+<<<<<<< HEAD
+              <Switch>
+=======
               <Fragment>
                 <Route exact path="/" component={UserHome} />
                 <Route path="/chat/:id" component={Chat} />
                 <Route path="/info" component={UserInfo} />
+>>>>>>> 0bc3fd5718c096fa4999185228e9cb9d63c837de
                 <Route path="/admin" component={Admin} />
               </Fragment>
             )}
