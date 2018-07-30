@@ -1,50 +1,39 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, {Component, Fragment} from 'react'
+import {connect} from 'react-redux'
 import history from '../history'
-import { companyName } from '../constants'
+import {companyName} from '../constants'
 
 /**
  * COMPONENT
  */
 class UserHome extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      //   roomId: '',
-      //   name: '',
-      //   sessionId: '',
-      //   token: ''
-    }
+  state = {
+    roomId: ''
   }
-
 
   launchCall = () => {
     let timeStart = Date.now()
     let roomId = `/chat/${timeStart}`
-    this.setState({ roomId: roomId })
+    this.setState({roomId: roomId})
     history.push(`/chat/${timeStart}`)
   }
 
   render() {
-    const { email } = this.props
+    const {email} = this.props
     return (
-      <div>
+      <Fragment>
         <h3>Welcome, {email}</h3>
         <button type="submit" onClick={this.launchCall}>{`Call ${companyName}`}</button>
-      </div>
+      </Fragment>
     )
   }
-
 }
 
 /**
  * CONTAINER
  */
-const mapState = state => {
-  return {
-    email: state.user.email
-  }
-}
+const mapState = state => ({
+  email: state.user.email
+})
 
 export default connect(mapState)(UserHome)
-

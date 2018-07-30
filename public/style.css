@@ -48,7 +48,9 @@ form div {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
-  width: 30%;
+  border: 2px solid;
+  border-radius: 5px;
+  box-shadow: 10px 10px 46px 3px rgba(212,204,212,1);
 
 }
 
