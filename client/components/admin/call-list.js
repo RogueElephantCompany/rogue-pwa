@@ -25,17 +25,16 @@ class CallList extends Component {
 
   removeCall = (sessionId) => {
     const { calls } = this.state
-    console.log('here is the sessionId in removeCall', sessionId)
-    // let idx
-    // for (let i = 0; i < this.state.calls.length; i++) {
-    //   if (calls[i] === sessionId) {
-    //     idx = i
-    //     break
-    //   }
-    //   console.log('here is the index: ', idx)
-    // }
-    // this.setState((prevState) => ({ calls: prevState.calls.splice(/*idx*/0, 1) }))
-    this.setState((prevState) => ({ calls: prevState.calls.slice(1) }))
+    let copy = calls.slice(0)
+    let idx
+    for (let i = 0; i < copy.length; i++) {
+      if (copy[i].sessionId === sessionId) {
+        idx = i
+        break
+      }
+    }
+    copy.splice(idx, 1)
+    this.setState(({ calls: copy }))
   }
 
 

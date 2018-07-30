@@ -3,16 +3,16 @@ import React from 'react'
 
 const Notification = (props) => {
 
-  const joinCall = () => {
+  const joinCall = (sessionId) => {
     // console.log('join the call')
     // history.push('/')
     props.answerCall(props)
-    props.removeCall()
+    props.removeCall(sessionId)
   }
 
-  const rejectCall = () => {
+  const rejectCall = (sessionId) => {
     console.log('reject the call')
-    props.removeCall()
+    props.removeCall(sessionId)
   }
 
   return (
@@ -22,13 +22,13 @@ const Notification = (props) => {
         className="invite-button"
         type="submit"
         id="accept"
-        onClick={() => joinCall()}>
+        onClick={() => joinCall(props.sessionId)}>
         Accept</button>
       <button
         className="invite-button"
         type="submit"
         id="reject"
-        onClick={() => rejectCall()}>
+        onClick={() => rejectCall(props.sessionId)}>
         Reject</button>
     </div>
   )
