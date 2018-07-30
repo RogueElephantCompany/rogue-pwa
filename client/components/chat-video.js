@@ -3,6 +3,7 @@ import { OTSession, OTPublisher, OTStreams, OTSubscriber } from 'opentok-react';
 import tokbox from '../tokboxConfig'
 import { Button } from 'semantic-ui-react'
 import socket from '../socket'
+import history from '../history'
 
 
 const { apiKey } = tokbox
@@ -15,15 +16,29 @@ class VideoChat extends Component {
     allAudioOn: true,
   }
 
-  joinVideo = () => {
+  startVideo = () => {
     socket.emit('invite', {
       sessionId: this.props.sessionId,
       roomId: this.props.roomId
     })
-    this.setState(prevState => ({
-      joinChat: !prevState.joinChat,
-      myAudioOn: !prevState.myAudioOn
-    }))
+    this.setState({
+      joinChat: true,
+      myAudioOn: true
+    })
+  }
+
+  endVideo = () => {
+    socket.emit('end-call', {
+      sessionId: this.props.sessionId,
+      roomId: this.props.roomId
+    })
+    this.setState({
+      joinChat: false,
+      myAudioOn: false,
+      myVideoOn: false,
+      allAudioOn: false
+    })
+    history.push('/')
   }
 
   toggleMyAudio = () => {
@@ -43,16 +58,6 @@ class VideoChat extends Component {
       allAudioOn: !prevState.allAudioOn
     }))
   }
-
-  // componentDidMount() {
-  //   socket.on('invite', (data) => {
-  //     console.log(data)
-  //   })
-  // }
-
-  // componentWillUnmount() {
-  //   console.log('componenet unmounting...')
-  // }
 
   render() {
     return (
@@ -122,16 +127,16 @@ class VideoChat extends Component {
                 <Button
                   secondary
                   type="submit"
-                  onClick={this.joinVideo}
-                  content='Exit Video Chat' />
+                  onClick={this.endVideo}
+                  content='End Video Chat' />
               </div>
             </div>
             :
             <div>
               <Button primary
                 type="submit"
-                onClick={this.joinVideo}
-                content='Join Video Chat' />
+                onClick={this.startVideo}
+                content='Start Video Chat' />
             </div>
         }
       </Fragment>

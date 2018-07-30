@@ -14,9 +14,12 @@ class CallList extends Component {
   }
 
   componentDidMount() {
-    socket.on('invite', (data) => {
+    socket.on('invite', data => {
       this.newCall(data)
       // this.answerCall(data)
+    })
+    socket.on('end-call', data => {
+      console.log(data)
     })
   }
 
