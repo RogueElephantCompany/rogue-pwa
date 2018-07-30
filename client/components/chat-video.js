@@ -116,7 +116,7 @@ class VideoChat extends Component {
                       }}
                     />
                   </OTStreams>
-                </div>
+                </OTSession>
               </div>
               <div>
                 <Button
@@ -125,7 +125,7 @@ class VideoChat extends Component {
                   onClick={this.joinVideo}
                   content='Exit Video Chat' />
               </div>
-            </Fragment>
+            </div>
             :
             <div>
               <Button primary
@@ -134,7 +134,7 @@ class VideoChat extends Component {
                 content='Join Video Chat' />
             </div>
         }
-      </div>
+      </Fragment>
     )
   }
 }

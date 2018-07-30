@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Button } from 'semantic-ui-react'
 import { OTSession, OTPublisher, OTStreams, OTSubscriber } from 'opentok-react';
 import tokbox from '../../tokboxConfig'
@@ -39,7 +39,7 @@ class Video extends Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         {
           this.state.joinChat ?
             <div className="row">
@@ -117,7 +117,7 @@ class Video extends Component {
                 content='Join Video Chat' />
             </div>
         }
-      </div>
+      </Fragment>
     )
   }
 }

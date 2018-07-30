@@ -1,9 +1,9 @@
-import React, {Component, Fragment} from 'react'
-import {connect} from 'react-redux'
-import {withRouter, Route, Switch} from 'react-router-dom'
+import React, { Component, Fragment } from 'react'
+import { connect } from 'react-redux'
+import { withRouter, Route, Switch } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import {Login, Signup, UserHome, Chat, UserInfo, Admin} from './components'
-import {me} from './store'
+import { Login, Signup, UserHome, Chat, UserInfo, Admin } from './components'
+import { me } from './store'
 
 /**
  * COMPONENT
@@ -14,35 +14,30 @@ class Routes extends Component {
   }
 
   render() {
-    const {isLoggedIn, isAdmin} = this.props
+    const { isLoggedIn, isAdmin } = this.props
     return (
-      <Switch>
-        {/* Routes placed here are available to all visitors */}
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
-        {isLoggedIn && (
-          <Switch>
-            {/* Routes placed here are only available after logging in */}
-            <Route exact path="/" component={UserHome} />
-            <Route path="/chat/:id" component={Chat} />
-            <Route path="/info" component={UserInfo} />
-            {isAdmin && (
-<<<<<<< HEAD
-              <Switch>
-=======
-              <Fragment>
-                <Route exact path="/" component={UserHome} />
-                <Route path="/chat/:id" component={Chat} />
-                <Route path="/info" component={UserInfo} />
->>>>>>> 0bc3fd5718c096fa4999185228e9cb9d63c837de
-                <Route path="/admin" component={Admin} />
-              </Fragment>
-            )}
-          </Switch>
-        )}
-        {/* Displays our Login component as a fallback */}
-        <Route component={Login} />
-      </Switch>
+      <Fragment>
+        <Switch>
+          {/* Routes placed here are available to all visitors */}
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
+          {isLoggedIn && (
+            <Switch>
+              {/* Routes placed here are only available after logging in */}
+              <Route exact path="/" component={UserHome} />
+              <Route path="/chat/:id" component={Chat} />
+              <Route path="/info" component={UserInfo} />
+              {isAdmin && (
+                <Switch>
+                  <Route path="/admin" component={Admin} />
+                </Switch>
+              )}
+            </Switch>
+          )}
+          {/* Displays our Login component as a fallback */}
+          <Route component={Login} />
+        </Switch>
+      </Fragment>
     )
   }
 }
