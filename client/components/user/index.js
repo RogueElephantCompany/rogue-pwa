@@ -38,7 +38,6 @@ class Chat extends Component {
 
   render() {
     const { blankVars } = this.state
-    // console.log('here is the socket: ', socket)
     return (
       <div className="chat-div">
         {blankVars ? (
