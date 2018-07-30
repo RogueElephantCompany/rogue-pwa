@@ -1,11 +1,12 @@
 import React from 'react'
-import history from '../../history'
+// import history from '../../history'
 
 const Notification = (props) => {
 
   const joinCall = () => {
     console.log('join the call')
     // history.push('/')
+    props.answerCall(props)
     props.removeCall()
   }
 
@@ -14,8 +15,6 @@ const Notification = (props) => {
     props.removeCall()
   }
 
-  console.log('props in Notification', props)
-  console.log('props.sessionId', props.sessionId)
   return (
     <div className="notification">
       <p>You have a video call</p>

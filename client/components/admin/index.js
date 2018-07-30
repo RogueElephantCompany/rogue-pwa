@@ -29,11 +29,6 @@ class Admin extends Component {
     })
   }
 
-  componentDidMount() {
-    socket.on('invite', (data) => {
-      this.answerCall(data)
-    })
-  }
 
   render() {
     return (
