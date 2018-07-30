@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import { OTSession, OTPublisher, OTStreams, OTSubscriber } from 'opentok-react';
-import tokbox from '../tokboxConfig'
+import tokbox from '../../tokboxConfig'
 import { Button } from 'semantic-ui-react'
-import socket from '../socket'
-import history from '../history'
+import socket from '../../socket'
+import history from '../../history'
 
 
 const { apiKey } = tokbox

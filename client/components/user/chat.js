@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import VideoChat from './chat-video'
-import tokbox from '../tokboxConfig'
+import tokbox from '../../tokboxConfig'
 import OpenTok from 'opentok'
 // import socket from '../socket'
 
