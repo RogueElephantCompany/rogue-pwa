@@ -17,6 +17,7 @@ nav a {
 
 form div {
   margin: 1em;
+  margin-left: 0px;
   display: inline-block;
 }
 
@@ -140,3 +141,37 @@ form div {
   top: 135px;
 }
 
+/*Info Input*/
+.input-line {
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+}
+
+.input-line input {
+  text-align: center;
+  text-transform: uppercase;
+  width: 300px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#state-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#state-line h5 {
+  margin-bottom: 0px;
+  margin-right: 20px;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+.submit-div {
+  text-align: center;
+  width: 100%;
+}
