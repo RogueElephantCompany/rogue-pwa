@@ -4,6 +4,7 @@ import tokbox from '../../tokboxConfig'
 import { Button } from 'semantic-ui-react'
 import socket from '../../socket'
 import history from '../../history'
+import { ChatButtons } from '../index'
 
 
 const { apiKey } = tokbox
@@ -72,35 +73,14 @@ class VideoChat extends Component {
                   token={this.props.token}
                   onError={(err) => console.log(err)}
                 >
-                  <div className="mute-btn-container">
-                    <button
-                      type="submit"
-                      className={this.state.myVideoOn ? "unMute-btn" : "mute-btn"}
-                      onClick={this.toggleMyVideo}
-                    >
-                      <img className="chat-icon" src={this.state.myVideoOn ? "/images/video-on.png" : "/images/video-off.png"}
-                        alt="video" />
-                    </button>
-                    <button
-                      type="submit"
-                      className={this.state.myAudioOn ? "unMute-btn" : "mute-btn"}
-                      onClick={this.toggleMyAudio}
-                      alt="mute"
-                    >
-                      <img className="chat-icon" src={this.state.myAudioOn ? "/images/mic-on.png" : "/images/mic-off.png"}
-                        alt="mic"
-                      />
-                    </button>
-                    <button
-                      type="submit"
-                      className="unMute-btn"
-                      onClick={this.toggleAllAudio}
-                    >
-                      <img className="chat-icon" src={this.state.allAudioOn ? "/images/audio-on.png" : "/images/no-audio.png"}
-                        alt="audio"
-                      />
-                    </button>
-                  </div>
+                  <ChatButtons
+                    myAudioOn={this.state.myAudioOn}
+                    myVideoOn={this.state.myVideoOn}
+                    allAudioOn={this.state.allAudioOn}
+                    toggleMyAudio={this.toggleMyAudio}
+                    toggleMyVideo={this.toggleMyVideo}
+                    toggleAllAudio={this.toggleAllAudio}
+                  />
                   <OTPublisher
                     properties={{
                       width: 100,

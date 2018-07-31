@@ -19,8 +19,9 @@ class Chat extends Component {
 
   componentDidMount() {
     socket.on('reject-call', data => {
-      console.log('call was rejected: ', data)
-      this.setState({ rejected: true })
+      if (data.sessionId === this.state.sessionId) {
+        this.setState({ rejected: true })
+      }
     })
   }
 
