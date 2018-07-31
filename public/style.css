@@ -128,3 +128,15 @@ form div {
   overflow: scroll;
   margin-bottom: 10px;
 }
+
+.rejection {
+  text-align: center;
+  background-color: rgba(138, 140, 142, 0.6);
+  color: red;
+  font-size: 2rem;
+  width: 100%;
+  border-radius: 5px;
+  position: absolute;
+  top: 135px;
+}
+

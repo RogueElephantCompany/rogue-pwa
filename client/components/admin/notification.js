@@ -1,4 +1,5 @@
 import React from 'react'
+import socket from '../../socket'
 // import history from '../../history'
 
 const Notification = (props) => {
@@ -11,7 +12,7 @@ const Notification = (props) => {
   }
 
   const rejectCall = (sessionId) => {
-    console.log('reject the call')
+    socket.emit('reject-call', { sessionId: sessionId })
     props.removeCall(sessionId)
   }
 

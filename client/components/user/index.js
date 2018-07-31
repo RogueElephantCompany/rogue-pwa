@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import VideoChat from './chat-video'
 import tokbox from '../../tokboxConfig'
 import OpenTok from 'opentok'
-// import socket from '../socket'
+import socket from '../../socket'
+import VideoChat from './chat-video'
+import Rejection from './rejection'
 
 const { apiKey, secret } = tokbox
 
@@ -12,7 +13,15 @@ class Chat extends Component {
     name: '',
     sessionId: '',
     token: '',
-    blankVars: true
+    blankVars: true,
+    rejected: false,
+  }
+
+  componentDidMount() {
+    socket.on('reject-call', data => {
+      console.log('call was rejected: ', data)
+      this.setState({ rejected: true })
+    })
   }
 
   createVars = () => {
@@ -37,7 +46,7 @@ class Chat extends Component {
   }
 
   render() {
-    const { blankVars } = this.state
+    const { blankVars, rejected } = this.state
     return (
       <div className="chat-div">
         {blankVars ? (
@@ -54,6 +63,12 @@ class Chat extends Component {
               token={this.state.token}
             />
           )}
+        {rejected ? (
+          <Rejection />
+        ) : (
+            <div />
+          )
+        }
       </div>
     )
   }

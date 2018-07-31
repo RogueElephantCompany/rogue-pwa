@@ -12,5 +12,8 @@ module.exports = io => {
     socket.on('end-call', data => {
       io.sockets.emit('end-call', data)
     })
+    socket.on('reject-call', data => {
+      io.sockets.emit('reject-call', data)
+    })
   })
 }
