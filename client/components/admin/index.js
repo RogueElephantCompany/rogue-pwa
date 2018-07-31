@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import socket from '../../socket'
 import OpenTok from 'opentok'
 import tokbox from '../../tokboxConfig'
-import VideoChat from './video-chat'
+import VideoChat from './admin-video'
 import CallList from './call-list'
 
 const { apiKey, secret } = tokbox

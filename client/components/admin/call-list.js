@@ -16,10 +16,10 @@ class CallList extends Component {
   componentDidMount() {
     socket.on('invite', data => {
       this.newCall(data)
-      // this.answerCall(data)
     })
     socket.on('end-call', data => {
       console.log(data)
+      this.removeCall(data.sessionId)
     })
   }
 
@@ -33,8 +33,10 @@ class CallList extends Component {
         break
       }
     }
-    copy.splice(idx, 1)
-    this.setState(({ calls: copy }))
+    if (idx >= 0) {
+      copy.splice(idx, 1)
+      this.setState(({ calls: copy }))
+    }
   }
 
 

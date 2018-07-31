@@ -7,4 +7,5 @@ npm-debug.log
 yarn-error.log
 client/firebase/firebaseConfig.js
 client/firebase/firebaseInit.js
+tokboxConfig.js
 

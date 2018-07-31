@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import tokbox from '../../tokboxConfig'
 import OpenTok from 'opentok'
 import socket from '../../socket'
-import VideoChat from './chat-video'
+import VideoChat from './user-video'
 import Rejection from './rejection'
 
 const { apiKey, secret } = tokbox
