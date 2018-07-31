@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { states } from '../constants'
+import { states } from '../../constants'
 
 class UserInfo extends Component {
   state = {
