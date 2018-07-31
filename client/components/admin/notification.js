@@ -1,12 +1,9 @@
 import React from 'react'
 import socket from '../../socket'
-// import history from '../../history'
 
 const Notification = (props) => {
 
   const joinCall = (sessionId) => {
-    // console.log('join the call')
-    // history.push('/')
     props.answerCall(props)
     props.removeCall(sessionId)
   }

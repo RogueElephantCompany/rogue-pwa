@@ -18,7 +18,6 @@ class CallList extends Component {
       this.newCall(data)
     })
     socket.on('end-call', data => {
-      console.log(data)
       this.removeCall(data.sessionId)
     })
   }
@@ -43,7 +42,6 @@ class CallList extends Component {
   render() {
     const { calls } = this.state
     const { answerCall } = this.props
-    console.log(this.state.calls)
     return (
       <div className="call-list">
         {
