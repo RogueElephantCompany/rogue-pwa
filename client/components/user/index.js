@@ -46,16 +46,13 @@ class Chat extends Component {
             <h3>Loading...</h3>
           </div>
         ) : (
-            <div>
-              <h1>Here is the VideoChat Component</h1>
-              <VideoChat
-                createVars={this.createVars}
-                roomId={this.state.roomId}
-                guestName={this.state.name}
-                sessionId={this.state.sessionId}
-                token={this.state.token}
-              />
-            </div>
+            <VideoChat
+              createVars={this.createVars}
+              roomId={this.state.roomId}
+              guestName={this.state.name}
+              sessionId={this.state.sessionId}
+              token={this.state.token}
+            />
           )}
       </div>
     )

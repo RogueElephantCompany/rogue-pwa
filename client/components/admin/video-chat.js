@@ -43,7 +43,7 @@ class Video extends Component {
         {
           this.state.joinChat ?
             <div className="row">
-              <div /*className="video-screen"*/>
+              <div className="video-screen">
                 <OTSession
                   apiKey={apiKey}
                   sessionId={this.props.sessionId}
