@@ -3,10 +3,17 @@ const { Info } = require('../db/models')
 const sequelize = require('sequelize')
 module.exports = router
 
-router.get('/', async (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
+  console.log('req.params: ', req.params)
+  console.log('req.body', req.body)
+  const { email } = req.body
+  const { id } = req.header
   try {
     const info = await Info.findAll({
-      attributes: ['id', 'email']
+      where: {
+        email: email,
+        //id: id,
+      }
     })
     res.json(info)
   } catch (err) {
@@ -14,11 +21,13 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-router.post('/:email', (req, res, next) => {
+router.post('/', (req, res, next) => {
   // const { userId } = req.params
+  console.log('post req.body: ', req.body)
   const { email } = req.body
-  sequelize
-    .query(`UPDATE users WHERE email = ${email}`)
-    .then(() => res.status(200))
-    .catch(() => res.status(500))
+  Info.create(req.body)
+    .then(data => {
+      res.json(data)
+    })
+    .catch(err => next(err))
 })

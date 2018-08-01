@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react'
+import { connect } from 'react-redux'
 import { states } from '../../constants'
+import { createUserInfo } from '../../store'
 
 class UserInfo extends Component {
   state = {
@@ -35,7 +37,9 @@ class UserInfo extends Component {
 
   handleSubmit = (evt) => {
     evt.preventDefault()
-    console.log(this.state)
+    const { createData, user } = this.props
+    console.log(user)
+    createData(this.state, user.id)
   }
 
   render() {
@@ -111,4 +115,9 @@ class UserInfo extends Component {
   }
 }
 
-export default UserInfo
+const mapState = state => state
+const mapDispatch = dispatch => ({
+  createData: (data, userId) => dispatch(createUserInfo(data, userId))
+})
+
+export default connect(mapState, mapDispatch)(UserInfo)
