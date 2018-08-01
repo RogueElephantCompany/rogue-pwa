@@ -16,16 +16,14 @@ class UserInfo extends Component {
   }
 
   componentDidMount() {
-    console.log('need to go fetch User Info')
+    // console.log('need to go fetch User Info')
     const { getUserInfo, user } = this.props
     getUserInfo(user.id)
   }
 
   changeTextbox = evt => {
     const { value, name } = evt.target
-    this.setState({ [name]: value.toUpperCase() }, () => {
-      console.log(name, this.state[name])
-    })
+    this.setState({ [name]: value.toUpperCase() })
   }
 
   formatPhoneNumber = str => {
