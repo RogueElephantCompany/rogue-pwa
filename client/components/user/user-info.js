@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { states } from '../../constants'
-import { createUserInfo } from '../../store'
+import { createUserInfo, fetchUserInfo } from '../../store'
 
 class UserInfo extends Component {
   state = {
@@ -17,6 +17,8 @@ class UserInfo extends Component {
 
   componentDidMount() {
     console.log('need to go fetch User Info')
+    const { getUserInfo, user } = this.props
+    getUserInfo(user.id)
   }
 
   changeTextbox = evt => {
@@ -39,6 +41,7 @@ class UserInfo extends Component {
     evt.preventDefault()
     const { createData, user } = this.props
     console.log(user)
+    // this.setState({ userId: user.id })
     createData(this.state, user.id)
   }
 
@@ -117,7 +120,8 @@ class UserInfo extends Component {
 
 const mapState = state => state
 const mapDispatch = dispatch => ({
-  createData: (data, userId) => dispatch(createUserInfo(data, userId))
+  createData: (data, userId) => dispatch(createUserInfo(data, userId)),
+  getUserInfo: userId => dispatch(fetchUserInfo(userId))
 })
 
 export default connect(mapState, mapDispatch)(UserInfo)

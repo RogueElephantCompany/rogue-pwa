@@ -34,7 +34,7 @@ export const fetchUserInfo = (userId) => async dispatch => {
 
 export const createUserInfo = (info, userId) => dispatch => {
   console.log('here is the userId: ', userId)
-  axios.post('/api/info', info)
+  axios.post('/api/info', info, userId)
     .then(res => {
       console.log('createUserInfo res: ', res)
       dispatch(addUserInfo(res.data))
