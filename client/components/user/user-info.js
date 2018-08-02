@@ -44,7 +44,6 @@ class UserInfo extends Component {
 
   handleUpdate = (evt) => {
     evt.preventDefault()
-    console.log(this.props.userInfo.length)
     const { updateUserData, user } = this.props
     updateUserData(this.state, user.id)
   }
@@ -118,7 +117,6 @@ class UserInfo extends Component {
                 </div>
                 <div className="input-line" id="state-line">
                   <h5>STATE</h5>
-                  {console.log(this.state.state)}
                   <select name="state" onChange={this.changeTextbox} value={this.state.state}>
                     {states.map(state => (
                       <option key={state} value={state} >

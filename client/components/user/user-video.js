@@ -39,7 +39,7 @@ class VideoChat extends Component {
       myVideoOn: false,
       allAudioOn: false
     })
-    history.push('/')
+    history.push('/home')
   }
 
   toggleMyAudio = () => {
@@ -58,6 +58,11 @@ class VideoChat extends Component {
     this.setState(prevState => ({
       allAudioOn: !prevState.allAudioOn
     }))
+  }
+
+  cycleVideo = () => {
+    console.log(OTPublisher)
+    OTPublisher.properties({ facingMode: "environment" })
   }
 
   render() {
@@ -88,7 +93,8 @@ class VideoChat extends Component {
                       publishAudio: this.state.myAudioOn,
                       publishVideo: this.state.myVideoOn,
                       name: this.props.guestName,
-                      showControls: false
+                      showControls: false,
+                      facingMode: 'environment'
                     }}
                   />
                   <OTStreams>
@@ -104,6 +110,7 @@ class VideoChat extends Component {
                 </OTSession>
               </div>
               <div>
+                <button type="submit" value='flipCamera' onClick={() => this.cycleVideo()} />
                 <Button
                   secondary
                   type="submit"
