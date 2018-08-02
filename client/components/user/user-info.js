@@ -118,9 +118,10 @@ class UserInfo extends Component {
                 </div>
                 <div className="input-line" id="state-line">
                   <h5>STATE</h5>
-                  <select name="state" onChange={this.changeTextbox}>
+                  {console.log(this.state.state)}
+                  <select name="state" onChange={this.changeTextbox} value={this.state.state}>
                     {states.map(state => (
-                      <option key={state} value={state} default={this.state.state}>
+                      <option key={state} value={state} >
                         {state}
                       </option>
                     ))}
