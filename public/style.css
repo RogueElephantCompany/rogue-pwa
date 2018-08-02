@@ -148,6 +148,10 @@ form div {
   font-size: 16px;
 }
 
+::placeholder {
+  color: black;
+}
+
 .input-line input {
   text-align: center;
   text-transform: uppercase;

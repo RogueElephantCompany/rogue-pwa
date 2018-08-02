@@ -10,7 +10,7 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => (
       {isLoggedIn ? (
         <div>
           {/* The navbar will show these links after you log in */}
-          <Link to="/">Home</Link>
+          <Link to="/home">Home</Link>
           <Link to="/info">Info</Link>
           {isAdmin ? (
             <Link to="/admin">Dashboard</Link>

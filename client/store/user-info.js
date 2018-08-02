@@ -42,7 +42,15 @@ export const createUserInfo = (info, userId) => dispatch => {
     .catch(err => console.error(err))
 }
 
-
+export const changeUserInfo = (info, userId) => dispatch => {
+  axios.put(`/api/info/${userId}`, info)
+    .then(res => {
+      console.log('put response: ', res)
+      dispatch(updateUserInfo(res.data))
+    })
+    .then(history.push('/home'))
+    .catch(err => console.error(err))
+}
 
 /**
  * REDUCER
