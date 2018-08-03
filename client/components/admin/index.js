@@ -24,9 +24,7 @@ class Admin extends Component {
         console.log('Session ID: ' + sessionId)
       }
       let token = opentok.generateToken(sessionId)
-      this.setState({ token: token, sessionId: sessionId }, () => {
-        console.log(this.state.token, this.state.sessionId)
-      })
+      this.setState({ token: token, sessionId: sessionId })
     })
   }
 

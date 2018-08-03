@@ -15,6 +15,7 @@ class VideoChat extends Component {
     myAudioOn: false,
     myVideoOn: true,
     allAudioOn: true,
+    facingMode: 'environment'
   }
 
   startVideo = () => {
@@ -37,7 +38,7 @@ class VideoChat extends Component {
       joinChat: false,
       myAudioOn: false,
       myVideoOn: false,
-      allAudioOn: false
+      allAudioOn: false,
     })
     history.push('/home')
   }
@@ -60,9 +61,15 @@ class VideoChat extends Component {
     }))
   }
 
-  cycleVideo = () => {
-    console.log(OTPublisher)
-    OTPublisher.properties({ facingMode: "environment" })
+  flipCamera = () => {
+    const { facingMode } = this.state
+    console.log(facingMode)
+    if (facingMode === 'user') {
+      this.setState({ facingMode: 'environment' })
+    }
+    else {
+      this.setState({ facingMode: 'user' })
+    }
   }
 
   render() {
@@ -94,7 +101,7 @@ class VideoChat extends Component {
                       publishVideo: this.state.myVideoOn,
                       name: this.props.guestName,
                       showControls: false,
-                      facingMode: 'environment'
+                      facingMode: this.state.facingMode//'environment'
                     }}
                   />
                   <OTStreams>
@@ -110,7 +117,7 @@ class VideoChat extends Component {
                 </OTSession>
               </div>
               <div>
-                <button type="submit" value='flipCamera' onClick={() => this.cycleVideo()} />
+                <button type="submit" value='flipCamera' onClick={/*() => OTPublisher.cycleVideo()*/() => this.flipCamera()} />
                 <Button
                   secondary
                   type="submit"
