@@ -65,19 +65,31 @@ class VideoChat extends Component {
     const { facingMode } = this.state
     console.log(facingMode)
     if (facingMode === 'user') {
-      this.setState({ facingMode: 'environment' })
+      this.setState({ facingMode: 'environment' }
+      )
     }
     else {
       this.setState({ facingMode: 'user' })
     }
   }
 
+  componentWillUnmount() {
+    socket.emit('end-call', {
+      sessionId: this.props.sessionId,
+      roomId: this.props.roomId
+    })
+  }
+
   render() {
+    const { facingMode } = this.state
     return (
       <Fragment>
         {
           this.state.joinChat ?
             <div className="row">
+              <button type="submit" onClick={() => this.flipCamera()}>
+                {facingMode === 'environment' ? 'Back Camera' : 'Front Camera'}
+              </button>
               <div className="video-screen">
                 <OTSession
                   apiKey={apiKey}
@@ -101,7 +113,10 @@ class VideoChat extends Component {
                       publishVideo: this.state.myVideoOn,
                       name: this.props.guestName,
                       showControls: false,
-                      facingMode: this.state.facingMode//'environment'
+                      facingMode: this.state.facingMode
+                    }}
+                    eventHandler={{
+                      cycleVideo: this.flipCamera
                     }}
                   />
                   <OTStreams>
@@ -117,7 +132,6 @@ class VideoChat extends Component {
                 </OTSession>
               </div>
               <div>
-                <button type="submit" value='flipCamera' onClick={/*() => OTPublisher.cycleVideo()*/() => this.flipCamera()} />
                 <Button
                   secondary
                   type="submit"
@@ -127,6 +141,9 @@ class VideoChat extends Component {
             </div>
             :
             <div>
+              <button type="submit" onClick={() => this.flipCamera()}>
+                {facingMode === 'environment' ? 'Back Camera' : 'Front Camera'}
+              </button>
               <Button primary
                 type="submit"
                 onClick={this.startVideo}
