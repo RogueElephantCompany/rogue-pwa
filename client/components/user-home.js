@@ -19,17 +19,14 @@ class UserHome extends Component {
   }
 
   launchSchedule = () => {
-    console.log('Go to Schedule')
     history.push('/schedule')
   }
 
   launchInfo = () => {
-    console.log('Go to Info')
     history.push('/info')
   }
 
-  launchPrevious = () => {
-    console.log('Go to Previous')
+  launchPreviousAppointments = () => {
     history.push('previous')
   }
 
@@ -50,7 +47,7 @@ class UserHome extends Component {
           <button
             className="home-button"
             type="submit"
-            onClick={this.launchPrevious}>
+            onClick={this.launchPreviousAppointments}>
             <img className="button-icon" src="/images/van2.png"
               alt="image" />
             <div className="centered">Previous Repairs</div>
