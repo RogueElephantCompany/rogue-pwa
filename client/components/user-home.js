@@ -50,7 +50,7 @@ class UserHome extends Component {
             onClick={this.launchPreviousAppointments}>
             <img className="button-icon" src="/images/van2.png"
               alt="image" />
-            <div className="centered">Previous Repairs</div>
+            <div className="centered">Prior Repairs</div>
           </button>
         </div>
         <div className="home-row">

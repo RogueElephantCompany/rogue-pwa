@@ -261,3 +261,71 @@ form div {
     transform: translate(-50%, -50%);
     font-weight: bold;
 }
+
+/* Previous Appointments */
+.previous-component {
+  overflow: scroll;
+}
+
+.prev-appt {
+  display: flex;
+  flex-direction: row;
+  margin: 5px 2px 2px 5px;
+  background-color: rgb(217, 221, 224);
+}
+
+.prev-appt h3 {
+  margin-top: auto;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-bottom: auto;
+}
+
+.prev-date {
+  padding-left: 2px;
+  /* width: 25%; */
+  width: 40%;
+}
+
+.prev-problem {
+  /* width: 25% */
+  width: 35%;
+}
+
+.prev-tech {
+  width: 20%;
+  text-align: center;
+}
+
+.prev-cost {
+  /* width: 20%; */
+  width: 25%;
+  text-align: right;
+}
+
+.prev-time {
+  width: 10%;
+  text-align: center;
+}
+
+.column-heads {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  /* background-color: rgb(21, 39, 155); */
+  background-color: rgb(232, 41, 99);
+  text-align: center;
+}
+
+#date-col {
+  margin-top: auto;
+  width: 40%;
+}
+
+#repair-col {
+  width: 35%;
+}
+
+#cost-col {
+  width: 25%;
+}
