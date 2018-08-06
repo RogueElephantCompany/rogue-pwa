@@ -1,9 +1,12 @@
 body {
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
+  /* font-family: "freight-text-pro",georgia,serif; */
+  font-family: "Lato", sans-serif;
 }
 
 a {
   text-decoration: none;
+  color: rgb(21, 39, 155);
 }
 
 label {
@@ -178,4 +181,35 @@ form div {
 .submit-div {
   text-align: center;
   width: 100%;
+}
+
+/* Login */
+.login-line {
+  width: 100%;
+  text-align: center;
+}
+
+.login-line input {
+  text-align: center;
+}
+
+.login-line ::placeholder {
+  color: gray;
+}
+
+.login-header {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  background-color: rgb(21, 39, 155);
+  color: white;
+}
+
+#signin-button {
+  color: white;
+  background-color: rgb(232, 41, 99);
+  width: 75px;
+  height: 35px;
+  border-radius: 5px;
 }

@@ -1,32 +1,43 @@
-import React, {Fragment} from 'react'
-import {connect} from 'react-redux'
+import React, { Fragment } from 'react'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import {auth} from '../store'
+import { auth } from '../store'
 
 /**
  * COMPONENT
  */
-const AuthForm = ({name, displayName, handleSubmit, error}) => (
+const AuthForm = ({ name, displayName, handleSubmit, error }) => (
   <Fragment>
+    {
+      displayName === 'Login' ? (
+        <div className="login-header">
+          <h1>Login</h1>
+        </div>
+      ) : (
+          <div className="login-header">
+            <h1>Signup</h1>
+          </div>
+        )
+    }
     <form onSubmit={handleSubmit} name={name}>
-      <div>
-        <label htmlFor="email">
-          <small>Email</small>
-        </label>
-        <input name="email" type="text" />
+      <div className="login-line">
+        {/* <label htmlFor="email">
+          <>Email</>
+        </label> */}
+        <input name="email" type="text" placeholder="EMAIL" />
       </div>
-      <div>
-        <label htmlFor="password">
-          <small>Password</small>
-        </label>
-        <input name="password" type="password" />
+      <div className="login-line">
+        {/* <label htmlFor="password">
+          <>Password</>
+        </label> */}
+        <input name="password" type="password" placeholder="PASSWORD" />
       </div>
-      <div>
-        <button type="submit">{displayName}</button>
+      <div className="login-line">
+        <button id="signin-button" type="submit">{displayName}</button>
       </div>
       {error && error.response && <div> {error.response.data} </div>}
     </form>
-    <a href="/auth/google">{displayName} with Google</a>
+    {/* <a href="/auth/google">{displayName} with Google</a> */}
   </Fragment>
 )
 
