@@ -234,8 +234,6 @@ form div {
   flex-direction: row;
   width: 100%;
   justify-content: space-around;
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
 .home-button {
@@ -243,8 +241,8 @@ form div {
   font-size: 24px;
   height: 120px;
   min-height: 120px;
-  width: 200px;
-  min-width: 200px;
+  width: 190px;
+  min-width: 190px;
   margin: 5px 10px 5px 10px;
   border-radius: 3px;
   position: relative;

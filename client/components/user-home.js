@@ -44,7 +44,7 @@ class UserHome extends Component {
             type="submit"
             onClick={this.launchCall}>
             <img className="button-icon" src="/images/phone.png"
-              alt="video" />
+              alt="image" />
             <div className="centered">{`Call ${companyName}`}</div>
           </button>
           <button
@@ -52,7 +52,7 @@ class UserHome extends Component {
             type="submit"
             onClick={this.launchPrevious}>
             <img className="button-icon" src="/images/van2.png"
-              alt="video" />
+              alt="image" />
             <div className="centered">Previous Repairs</div>
           </button>
         </div>
@@ -62,7 +62,7 @@ class UserHome extends Component {
             type="submit"
             onClick={this.launchSchedule}>
             <img className="button-icon" src="/images/calendar.png"
-              alt="video" />
+              alt="image" />
             <div className="centered">Schedule Appointment</div>
           </button>
           <button
@@ -71,7 +71,7 @@ class UserHome extends Component {
             type="submit"
             onClick={this.launchInfo}>
             <img className="button-icon" src="/images/profile.png"
-              alt="video" />
+              alt="image" />
             <div className="centered">Update Info</div>
           </button>
         </div>
