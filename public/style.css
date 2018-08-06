@@ -222,3 +222,44 @@ form div {
   border-radius: 5px;
   font-size: 16px;
 }
+
+/* Home Page */
+.user-home {
+  padding: 50px 0px 50px 0px;
+  text-align: center;
+}
+
+.home-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.home-button {
+  background-color: rgb(217, 221, 224);
+  font-size: 24px;
+  height: 120px;
+  min-height: 120px;
+  width: 200px;
+  min-width: 200px;
+  margin: 5px 10px 5px 10px;
+  border-radius: 3px;
+  position: relative;
+}
+
+.button-icon {
+  height: 100px;
+  width: auto;
+  opacity: .5;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+}

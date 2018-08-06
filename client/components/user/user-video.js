@@ -87,9 +87,9 @@ class VideoChat extends Component {
         {
           this.state.joinChat ?
             <div className="row">
-              <button type="submit" onClick={() => this.flipCamera()}>
+              {/* <button type="submit" onClick={() => this.flipCamera()}>
                 {facingMode === 'environment' ? 'Back Camera' : 'Front Camera'}
-              </button>
+              </button> */}
               <div className="video-screen">
                 <OTSession
                   apiKey={apiKey}
