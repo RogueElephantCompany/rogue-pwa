@@ -191,6 +191,10 @@ form div {
 
 .login-line input {
   text-align: center;
+  background-color: rgb(217, 221, 224);
+  height: 2em;
+  width: 200px;
+  font-size: 16px;
 }
 
 .login-line ::placeholder {
@@ -206,10 +210,15 @@ form div {
   color: white;
 }
 
+.login-header h1 {
+  font-size: 50px;
+}
+
 #signin-button {
   color: white;
   background-color: rgb(232, 41, 99);
-  width: 75px;
+  width: 85px;
   height: 35px;
   border-radius: 5px;
+  font-size: 16px;
 }
