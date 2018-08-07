@@ -39,7 +39,7 @@ class PreviousAppointments extends Component {
     const { priorAppts, selected } = this.state;
     return (
       <div>
-        <h1 style={{ 'textAlign': 'center', color: 'rgb(21, 39, 155)' }}>Previous Repairs </h1>
+        <h1 style={{ 'textAlign': 'center', color: 'rgb(21, 39, 155)' }}>Past Repairs </h1>
         <div className="previous-component">
           <div className="column-heads">
             <h2 id="date-col">Date</h2>

@@ -9,6 +9,7 @@ router.use((req, res, next) => {
 
 router.use('/users', require('./users'))
 router.use('/info', require('./userInfo'))
+router.use('/repairs', require('./repairs'))
 
 router.use((req, res, next) => {
   const error = new Error('Not Found')
