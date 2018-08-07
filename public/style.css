@@ -264,10 +264,12 @@ form div {
 
 /* Previous Appointments */
 .previous-component {
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .prev-appt {
+  width: 100%;
   display: flex;
   flex-direction: row;
   margin: 5px 2px 2px 5px;
@@ -285,11 +287,13 @@ form div {
   padding-left: 2px;
   /* width: 25%; */
   width: 40%;
+  text-align: left;
 }
 
 .prev-problem {
   /* width: 25% */
   width: 35%;
+  text-align: left;
 }
 
 .prev-tech {
@@ -315,6 +319,7 @@ form div {
   /* background-color: rgb(21, 39, 155); */
   background-color: rgb(232, 41, 99);
   text-align: center;
+  font-size: 2rem;
 }
 
 #date-col {
@@ -328,4 +333,17 @@ form div {
 
 #cost-col {
   width: 25%;
+}
+
+/* Previous Details */
+.previous-details {
+  margin: 5px 2px 2px 5px;
+  overflow-y: scroll;
+}
+
+.previous-details h1 {
+  background-color: rgb(217, 221, 224);
+   padding: 5px;
+   margin: 2px;
+   text-align: justify;
 }
