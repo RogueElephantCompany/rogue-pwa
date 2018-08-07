@@ -28,7 +28,7 @@ const updateUserInfo = data => ({ type: UPDATE_USER_INFO, data })
 
 export const fetchAllUserInfo = () => async dispatch => {
   try {
-    const res = axios.get('/api/info')
+    const res = await axios.get('/api/info')
     dispatch(getAllUserInfo(res.data))
   }
   catch (err) {
