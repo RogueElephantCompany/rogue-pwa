@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -13,7 +13,10 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => (
           <Link to="/home">Home</Link>
           <Link to="/info">Info</Link>
           {isAdmin ? (
-            <Link to="/admin">Dashboard</Link>
+            <Fragment>
+              <Link to="/repairs">All Repairs</Link>
+              <Link to="/admin">Dashboard</Link>
+            </Fragment>
           ) : ""}
           <a href="#" onClick={handleClick}>
             Logout

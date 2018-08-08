@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { withRouter, Route, Switch } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { Login, Signup, UserHome, Chat, UserInfo, Admin, Schedule, PreviousAppointments } from './components'
+import { Login, Signup, UserHome, Chat, UserInfo, Admin, Schedule, PreviousAppointments, AllRepairs } from './components'
 import { me } from './store'
 
 /**
@@ -32,6 +32,7 @@ class Routes extends Component {
               {isAdmin && (
                 <Switch>
                   <Route path="/admin" component={Admin} />
+                  <Route path="/repairs" component={AllRepairs} />
                 </Switch>
               )}
             </Switch>
