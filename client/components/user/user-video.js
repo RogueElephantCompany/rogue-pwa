@@ -90,7 +90,7 @@ class VideoChat extends Component {
               {/* <button type="submit" onClick={() => this.flipCamera()}>
                 {facingMode === 'environment' ? 'Back Camera' : 'Front Camera'}
               </button> */}
-              <div className="video-screen">
+              <div>
                 <OTSession
                   apiKey={apiKey}
                   sessionId={this.props.sessionId}
@@ -105,20 +105,22 @@ class VideoChat extends Component {
                     toggleMyVideo={this.toggleMyVideo}
                     toggleAllAudio={this.toggleAllAudio}
                   />
-                  <OTPublisher
-                    properties={{
-                      width: 100,
-                      height: 100,
-                      publishAudio: this.state.myAudioOn,
-                      publishVideo: this.state.myVideoOn,
-                      name: this.props.guestName,
-                      showControls: false,
-                      facingMode: this.state.facingMode
-                    }}
-                    eventHandler={{
-                      cycleVideo: this.flipCamera
-                    }}
-                  />
+                  <div className="video-screen">
+                    <OTPublisher
+                      properties={{
+                        width: 100,
+                        height: 100,
+                        publishAudio: this.state.myAudioOn,
+                        publishVideo: this.state.myVideoOn,
+                        name: this.props.guestName,
+                        showControls: false,
+                        facingMode: this.state.facingMode
+                      }}
+                      eventHandler={{
+                        cycleVideo: this.flipCamera
+                      }}
+                    />
+                  </div>
                   <OTStreams>
                     <OTSubscriber
                       properties={{
@@ -141,9 +143,9 @@ class VideoChat extends Component {
             </div>
             :
             <div>
-              <button type="submit" onClick={() => this.flipCamera()}>
+              {/* <button type="submit" onClick={() => this.flipCamera()}>
                 {facingMode === 'environment' ? 'Back Camera' : 'Front Camera'}
-              </button>
+              </button> */}
               <Button primary
                 type="submit"
                 onClick={this.startVideo}

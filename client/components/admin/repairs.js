@@ -2,13 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchUserRepairs, fetchAllRepairs } from '../../store'
 
-// const prevAppts = [
-//   { date: 'Fri Jan 06 2017', problem: 'Broken Heater', technician: 'Nick A', apptLength: '30 min', cost: '$139.19' },
-//   { date: 'Wed Apr 04 2018', problem: 'Drywall', technician: 'Bradley M', apptLength: '120 min', cost: '$85.42' },
-//   { date: 'Mon Aug 06 2018', problem: 'Leaky Faucet', technician: 'Bradley M', apptLength: '90 min', cost: '$35.01' },
-// ]
-
-
 class AllRepairs extends Component {
   state = {
     searchBar: '',
@@ -45,7 +38,7 @@ class AllRepairs extends Component {
   }
 
   render() {
-    const { /*priorAppts,*/ selected } = this.state;
+    const { selected } = this.state;
     const inputVaue = this.state.searchBar.toLowerCase();
     const { repairs } = this.props
     const filteredRepairs = repairs.slice().reverse()

@@ -31,11 +31,11 @@ class Admin extends Component {
 
   render() {
     return (
-      <Fragment>
+      <div className="chat-div">
         <h1>Here is the admin page</h1>
         <CallList answerCall={this.answerCall} />
         <VideoChat sessionId={this.state.sessionId} token={this.state.token} />
-      </Fragment>
+      </div>
     )
   }
 }
