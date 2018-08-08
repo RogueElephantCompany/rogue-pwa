@@ -131,7 +131,7 @@ class VideoChat extends Component {
                   </OTStreams>
                 </OTSession>
               </div>
-              <div>
+              <div style={{ marginTop: '10px' }}>
                 <Button
                   secondary
                   type="submit"
