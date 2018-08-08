@@ -48,7 +48,7 @@ class UserHome extends Component {
             className="home-button"
             type="submit"
             onClick={this.launchPreviousAppointments}>
-            <img className="button-icon" src="/images/van2.png"
+            <img className="button-icon" src="/images/van3.png"
               alt="image" />
             <div className="centered">Past Repairs</div>
           </button>

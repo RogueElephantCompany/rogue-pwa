@@ -136,6 +136,43 @@ class VideoChat extends Component {
         ) : (
           <div>
             {/* <button type="submit" onClick={() => this.flipCamera()}>
+                  <OTPublisher
+                    properties={{
+                      width: 100,
+                      height: 100,
+                      publishAudio: this.state.myAudioOn,
+                      publishVideo: this.state.myVideoOn,
+                      name: this.props.guestName,
+                      showControls: false,
+                      facingMode: this.state.facingMode
+                    }}
+                    eventHandler={{
+                      cycleVideo: this.flipCamera
+                    }}
+                  />
+                  <OTStreams>
+                    <OTSubscriber
+                      properties={{
+                        width: 400,
+                        height: 400,
+                        subscribeToAudio: this.state.allAudioOn,
+                        subscribeToVideo: true,
+                      }}
+                    />
+                  </OTStreams>
+                </OTSession>
+              </div>
+              <div style={{ marginTop: '10px' }}>
+                <Button
+                  secondary
+                  type="submit"
+                  onClick={this.endVideo}
+                  content='End Video Chat' />
+              </div>
+            </div>
+            :
+            <div className="row">
+              {/* <button type="submit" onClick={() => this.flipCamera()}>
                 {facingMode === 'environment' ? 'Back Camera' : 'Front Camera'}
               </button> */}
             <Button primary type="submit" onClick={this.startVideo} content="Start Video Chat" />
