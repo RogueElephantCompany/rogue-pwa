@@ -105,22 +105,20 @@ class VideoChat extends Component {
                     toggleMyVideo={this.toggleMyVideo}
                     toggleAllAudio={this.toggleAllAudio}
                   />
-                  <div className="video-screen">
-                    <OTPublisher
-                      properties={{
-                        width: 100,
-                        height: 100,
-                        publishAudio: this.state.myAudioOn,
-                        publishVideo: this.state.myVideoOn,
-                        name: this.props.guestName,
-                        showControls: false,
-                        facingMode: this.state.facingMode
-                      }}
-                      eventHandler={{
-                        cycleVideo: this.flipCamera
-                      }}
-                    />
-                  </div>
+                  <OTPublisher
+                    properties={{
+                      width: 100,
+                      height: 100,
+                      publishAudio: this.state.myAudioOn,
+                      publishVideo: this.state.myVideoOn,
+                      name: this.props.guestName,
+                      showControls: false,
+                      facingMode: this.state.facingMode
+                    }}
+                    eventHandler={{
+                      cycleVideo: this.flipCamera
+                    }}
+                  />
                   <OTStreams>
                     <OTSubscriber
                       properties={{
@@ -142,7 +140,7 @@ class VideoChat extends Component {
               </div>
             </div>
             :
-            <div>
+            <div className="row">
               {/* <button type="submit" onClick={() => this.flipCamera()}>
                 {facingMode === 'environment' ? 'Back Camera' : 'Front Camera'}
               </button> */}
