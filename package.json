@@ -45,8 +45,9 @@
     "opentok-react": "^0.7.0",
     "passport": "^0.3.2",
     "passport-google-oauth": "^1.0.0",
-    "pg": "^6.1.2",
+    "pg": "^7.4.3",
     "pg-hstore": "^2.3.2",
+    "polished": "^1.9.3",
     "prop-types": "^15.5.8",
     "react": "^16.3.1",
     "react-dom": "^16.0.0",
@@ -57,7 +58,8 @@
     "redux-thunk": "^2.2.0",
     "semantic-ui-react": "^0.82.1",
     "sequelize": "^4.3.1",
-    "socket.io": "^2.0.3"
+    "socket.io": "^2.0.3",
+    "styled-components": "^3.4.2"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.40",
@@ -69,6 +71,7 @@
     "axios-mock-adapter": "^1.9.0",
     "babel-eslint": "^8.2.2",
     "babel-loader": "^8.0.0-beta.2",
+    "babel-plugin-styled-components": "^1.5.1",
     "chai": "^3.5.0",
     "enzyme": "^3.0.0",
     "enzyme-adapter-react-16": "^1.0.0",

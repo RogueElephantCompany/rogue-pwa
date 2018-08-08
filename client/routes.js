@@ -1,9 +1,27 @@
-import React, { Component, Fragment } from 'react'
-import { connect } from 'react-redux'
-import { withRouter, Route, Switch } from 'react-router-dom'
+import React, {Component, Fragment} from 'react'
+import {connect} from 'react-redux'
+import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { Login, Signup, UserHome, Chat, UserInfo, Admin, Schedule, PreviousAppointments, AllRepairs } from './components'
-import { me } from './store'
+import styled from 'styled-components'
+import {
+  Login,
+  Signup,
+  UserHome,
+  Chat,
+  UserInfo,
+  Admin,
+  Schedule,
+  PreviousAppointments,
+  AllRepairs
+} from './components'
+import {me} from './store'
+
+const PageWrapper = styled.div`
+  height: calc(100vh - 60px);
+  background-image: url('/images/loginbg.jpg');
+  background-size: cover;
+  overflow: auto;
+`
 
 /**
  * COMPONENT
@@ -14,9 +32,9 @@ class Routes extends Component {
   }
 
   render() {
-    const { isLoggedIn, isAdmin } = this.props
+    const {isLoggedIn, isAdmin} = this.props
     return (
-      <Fragment>
+      <PageWrapper>
         <Switch>
           {/* Routes placed here are available to all visitors */}
           <Route path="/login" component={Login} />
@@ -40,7 +58,7 @@ class Routes extends Component {
           {/* Displays our Login component as a fallback */}
           <Route component={Login} />
         </Switch>
-      </Fragment>
+      </PageWrapper>
     )
   }
 }

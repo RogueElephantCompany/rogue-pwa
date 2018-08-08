@@ -1,44 +1,44 @@
-import React, { Fragment } from 'react'
-import { connect } from 'react-redux'
+import React from 'react'
+import {connect} from 'react-redux'
+import styled from 'styled-components'
+
 import PropTypes from 'prop-types'
-import { auth } from '../store'
+import {auth} from '../store'
+import {Input, Button, Form} from './common/ui'
+
+const FormWrapper = styled.div`
+  width: 100%;
+  height: 100vh;
+`
+
+const LoginHeader = styled.h1`
+  font-size: 3rem;
+  margin: auto;
+  margin-top: 20px;
+  text-align: center;
+  color: #dbdbdb;
+`
 
 /**
  * COMPONENT
  */
-const AuthForm = ({ name, displayName, handleSubmit, error }) => (
-  <Fragment>
-    {
-      displayName === 'Login' ? (
-        <div className="login-header">
-          <h1>Login</h1>
-        </div>
-      ) : (
-          <div className="login-header">
-            <h1>Signup</h1>
-          </div>
-        )
-    }
-    <form onSubmit={handleSubmit} name={name}>
-      <div className="login-line">
-        {/* <label htmlFor="email">
+const AuthForm = ({name, displayName, handleSubmit, error}) => (
+  <FormWrapper>
+    <LoginHeader>{displayName === 'Login' ? 'Login' : 'Sign Up'}</LoginHeader>
+    <Form onSubmit={handleSubmit} name={name}>
+      {/* <label htmlFor="email">
           <>Email</>
         </label> */}
-        <input name="email" type="text" placeholder="EMAIL" />
-      </div>
-      <div className="login-line">
-        {/* <label htmlFor="password">
+      <Input name="email" color="#dbdbdb" type="email" placeholder="EMAIL" />
+      {/* <label htmlFor="password">
           <>Password</>
         </label> */}
-        <input name="password" type="password" placeholder="PASSWORD" />
-      </div>
-      <div className="login-line">
-        <button id="signin-button" type="submit">{displayName}</button>
-      </div>
+      <Input name="password" color="#dbdbdb" type="password" placeholder="PASSWORD" />
+      <Button primary wide loose type="submit" content={displayName} />
       {error && error.response && <div> {error.response.data} </div>}
-    </form>
+    </Form>
     {/* <a href="/auth/google">{displayName} with Google</a> */}
-  </Fragment>
+  </FormWrapper>
 )
 
 /**

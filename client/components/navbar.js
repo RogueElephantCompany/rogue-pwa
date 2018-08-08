@@ -1,37 +1,51 @@
-import React, { Fragment } from 'react'
+import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { logout } from '../store'
+import {connect} from 'react-redux'
+import styled from 'styled-components'
+import {Link} from 'react-router-dom'
+import {logout} from '../store'
 
-const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => (
-  <div>
-    <nav>
-      {isLoggedIn ? (
-        <div>
-          {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
-          <Link to="/info">Info</Link>
-          {isAdmin ? (
-            <Fragment>
-              <Link to="/repairs">All Repairs</Link>
-              <Link to="/admin">Dashboard</Link>
-            </Fragment>
-          ) : ""}
-          <a href="#" onClick={handleClick}>
-            Logout
-          </a>
-        </div>
-      ) : (
-          <div>
-            {/* The navbar will show these links before you log in */}
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Sign Up</Link>
-          </div>
+const Nav = styled.nav`
+  display: flex;
+  height: 60px;
+  width: 100%;
+  > * {
+    color: white;
+    &:hover {
+      color: #dbdbdb;
+    }
+  }
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.25);
+  align-items: center;
+  background: #1e77b4;
+`
+const Navbar = ({handleClick, isLoggedIn, isAdmin}) => (
+  <Nav>
+    {isLoggedIn ? (
+      <Fragment>
+        {/* The navbar will show these links after you log in */}
+        <Link to="/home">Home</Link>
+        <Link to="/info">Info</Link>
+        {isAdmin ? (
+          <Fragment>
+            <Link to="/repairs">All Repairs</Link>
+            <Link to="/admin">Dashboard</Link>
+          </Fragment>
+        ) : (
+          ''
         )}
-    </nav>
-    <hr />
-  </div>
+        <a href="#" onClick={handleClick}>
+          Logout
+        </a>
+      </Fragment>
+    ) : (
+      <Fragment>
+        {/* The navbar will show these links before you log in */}
+        <Link to="/login">Login</Link>
+        <Link to="/signup">Sign Up</Link>
+      </Fragment>
+    )}
+  </Nav>
 )
 
 /**
