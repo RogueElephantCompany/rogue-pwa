@@ -9,12 +9,13 @@ class CallList extends Component {
     calls: [] /*sampleCalls*/,
   }
 
-  newCall = (data) => {
+  newCall = data => {
     this.setState((prevState) => ({ calls: [...prevState.calls, data] }))
   }
 
   componentDidMount() {
     socket.on('invite', data => {
+      console.log(data)
       this.newCall(data)
     })
     socket.on('end-call', data => {
@@ -51,6 +52,7 @@ class CallList extends Component {
                 sessionId={call.sessionId}
                 answerCall={answerCall}
                 removeCall={this.removeCall}
+                email={call.email}
                 callIndex={idx} />
             </div>
           ))

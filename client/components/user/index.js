@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import tokbox from '../../tokboxConfig'
 import OpenTok from 'opentok'
 import socket from '../../socket'
@@ -62,6 +63,7 @@ class Chat extends Component {
               guestName={this.state.name}
               sessionId={this.state.sessionId}
               token={this.state.token}
+              user={this.props.user}
             />
           )}
         {rejected ? (
@@ -75,4 +77,9 @@ class Chat extends Component {
   }
 }
 
-export default Chat
+const mapState = state => ({
+  user: state.user,
+})
+
+// export default Chat
+export default connect(mapState)(Chat)

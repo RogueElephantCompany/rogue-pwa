@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import { connect } from 'react-redux'
 import { OTSession, OTPublisher, OTStreams, OTSubscriber } from 'opentok-react';
 import tokbox from '../../tokboxConfig'
 import { Button } from 'semantic-ui-react'
@@ -19,9 +20,12 @@ class VideoChat extends Component {
   }
 
   startVideo = () => {
+    const { user } = this.props
+    console.log(this.props)
     socket.emit('invite', {
       sessionId: this.props.sessionId,
-      roomId: this.props.roomId
+      roomId: this.props.roomId,
+      email: user.email
     })
     this.setState({
       joinChat: true,
@@ -82,6 +86,7 @@ class VideoChat extends Component {
 
   render() {
     const { facingMode } = this.state
+    // console.log('video props: ', this.props)
     return (
       <Fragment>
         {
@@ -155,4 +160,10 @@ class VideoChat extends Component {
   }
 }
 
-export default VideoChat
+const mapState = state => ({
+  // console.log(state)
+  facingMode: state.facingMode
+})
+
+export default connect(mapState)(VideoChat)
+// export default VideoChat
