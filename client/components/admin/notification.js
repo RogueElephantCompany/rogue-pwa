@@ -1,7 +1,7 @@
 import React from 'react'
 import socket from '../../socket'
 
-const Notification = (props) => {
+const Notification = props => {
 
   const joinCall = (sessionId) => {
     props.answerCall(props)
@@ -16,6 +16,7 @@ const Notification = (props) => {
   return (
     <div className="notification">
       <p>You have a video call</p>
+      <p>{`from ${props.email}`}</p>
       <button
         className="invite-button"
         type="submit"
