@@ -15,7 +15,7 @@ class Chat extends Component {
     sessionId: '',
     token: '',
     blankVars: true,
-    rejected: false,
+    rejected: false
   }
 
   componentDidMount() {
@@ -57,28 +57,23 @@ class Chat extends Component {
             <h3>Loading...</h3>
           </div>
         ) : (
-            <VideoChat
-              createVars={this.createVars}
-              roomId={this.state.roomId}
-              guestName={this.state.name}
-              sessionId={this.state.sessionId}
-              token={this.state.token}
-              user={this.props.user}
-            />
-          )}
-        {rejected ? (
-          <Rejection />
-        ) : (
-            <div />
-          )
-        }
+          <VideoChat
+            createVars={this.createVars}
+            roomId={this.state.roomId}
+            guestName={this.state.name}
+            sessionId={this.state.sessionId}
+            token={this.state.token}
+            user={this.props.user}
+          />
+        )}
+        {rejected ? <Rejection /> : <div />}
       </div>
     )
   }
 }
 
 const mapState = state => ({
-  user: state.user,
+  user: state.user
 })
 
 // export default Chat

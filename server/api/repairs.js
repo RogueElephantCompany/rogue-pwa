@@ -7,8 +7,7 @@ router.get('/', async (req, res, next) => {
   try {
     const info = await Repairs.findAll({ include: [User] })
     res.json(info)
-  }
-  catch (err) {
+  } catch (err) {
     next(err)
   }
 })
@@ -37,17 +36,27 @@ router.post('/', (req, res, next) => {
 })
 
 router.put('/:userId', (req, res, next) => {
-  const { firstName, lastName, address1, address2, city, state, zip, phone } = req.body
-  Repairs.update({
-    firstName: firstName,
-    lastName: lastName,
-    address1: address1,
-    address2: address2,
-    city: city,
-    state: state,
-    zip: zip,
-    phone: phone,
-  },
+  const {
+    firstName,
+    lastName,
+    address1,
+    address2,
+    city,
+    state,
+    zip,
+    phone
+  } = req.body
+  Repairs.update(
+    {
+      firstName: firstName,
+      lastName: lastName,
+      address1: address1,
+      address2: address2,
+      city: city,
+      state: state,
+      zip: zip,
+      phone: phone
+    },
     { where: { userId: req.user.id } }
   )
     .then(data => {

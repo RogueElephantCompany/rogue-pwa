@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {rgba} from 'polished'
+import { rgba } from 'polished'
 
 const getButtonBackground = p => {
   if (p.active || p.primary) {
@@ -22,6 +22,8 @@ const StyledButton = styled.button`
   cursor: pointer;
 `
 
-export const Button = ({loose, wide, color, active, primary, content}) => (
-  <StyledButton {...{loose, wide, color, active, primary}}>{content}</StyledButton>
+export const Button = ({ loose, wide, color, active, primary, content }) => (
+  <StyledButton {...{ loose, wide, color, active, primary }}>
+    {content}
+  </StyledButton>
 )

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {rgba} from 'polished'
+import { rgba } from 'polished'
 
 const StyledInput = styled.input`
   background: transparent !important;
@@ -18,4 +18,6 @@ const StyledInput = styled.input`
   }
 `
 
-export const Input = ({color, ...rest}) => <StyledInput color={color} {...rest} />
+export const Input = ({ color, ...rest }) => (
+  <StyledInput color={color} {...rest} />
+)

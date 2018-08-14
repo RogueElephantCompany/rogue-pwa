@@ -20,5 +20,5 @@ Repairs.belongsTo(User)
 module.exports = {
   User,
   Info,
-  Repairs,
+  Repairs
 }

@@ -3,30 +3,29 @@ const db = require('../db')
 
 const Info = db.define('info', {
   firstName: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING
   },
   lastName: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING
   },
   address1: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING
   },
   address2: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING
   },
   city: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING
   },
   state: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING
   },
   zip: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING
   },
   phone: {
-    type: Sequelize.STRING,
-  },
+    type: Sequelize.STRING
+  }
 })
 
 module.exports = Info
-

@@ -3,21 +3,20 @@ const db = require('../db')
 
 const Repairs = db.define('repairs', {
   date: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING
   },
   problem: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING
   },
   technician: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING
   },
   apptLength: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING
   },
   cost: {
-    type: Sequelize.STRING,
-  },
+    type: Sequelize.STRING
+  }
 })
 
 module.exports = Repairs
-

@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {User} = require('../db/models')
+const { User } = require('../db/models')
 const sequelize = require('sequelize')
 module.exports = router
 
@@ -18,8 +18,8 @@ router.get('/', async (req, res, next) => {
 })
 
 router.post('/:userId', (req, res, next) => {
-  const {userId} = req.params
-  const {email} = req.body
+  const { userId } = req.params
+  const { email } = req.body
   sequelize
     .query(`UPDATE users WHERE email = ${email}`)
     .then(() => res.status(200))

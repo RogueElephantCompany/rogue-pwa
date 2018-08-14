@@ -1,8 +1,8 @@
 body {
   /* font-family: sans-serif; */
   /* font-family: "freight-text-pro",georgia,serif; */
-  font-family: "Lato", sans-serif;
-  overflow:hidden;
+  font-family: 'Lato', sans-serif;
+  overflow: hidden;
   height: 100vh;
 }
 
@@ -25,7 +25,6 @@ form div {
   margin-left: 0px;
   display: inline-block;
 }
-
 
 /*Video*/
 .row {
@@ -59,7 +58,7 @@ form div {
 
 .chat-icon {
   width: 20px;
-  height: auto
+  height: auto;
 }
 .mute-btn-container {
   display: flex;
@@ -69,13 +68,14 @@ form div {
   width: 30%;
 }
 
-.mute-btn, .unMute-btn {
+.mute-btn,
+.unMute-btn {
   font-size: 12px;
   border-radius: 5px;
 }
 
 .mute-btn {
-  background-color: red
+  background-color: red;
 }
 
 /*Notification*/
@@ -94,7 +94,6 @@ form div {
   height: 30px;
   line-height: 200%;
 }
-
 
 .invite-button {
   color: white;
@@ -123,11 +122,11 @@ form div {
   border-radius: 0px 0px 0px 5px;
 }
 #accept:focus {
-  background-color: rgba(14, 135, 8, .6)
+  background-color: rgba(14, 135, 8, 0.6);
 }
 
 #reject:focus {
-    background-color: rgba(165, 14, 14, 0.6)
+  background-color: rgba(165, 14, 14, 0.6);
 }
 
 .call-list {
@@ -255,15 +254,15 @@ form div {
 .button-icon {
   height: 100px;
   width: auto;
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
 }
 
 /* Previous Appointments */
@@ -347,9 +346,9 @@ form div {
 
 .previous-details h1 {
   background-color: rgb(217, 221, 224);
-   padding: 5px;
-   margin: 2px;
-   text-align: justify;
+  padding: 5px;
+  margin: 2px;
+  text-align: justify;
 }
 
 #searchbar {

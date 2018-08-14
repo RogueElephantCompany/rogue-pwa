@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 class Schedule extends Component {
   state = {
-    now: '',
+    now: ''
   }
 
   render() {
@@ -14,5 +14,4 @@ class Schedule extends Component {
   }
 }
 
-export default Schedule;
-
+export default Schedule

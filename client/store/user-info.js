@@ -30,13 +30,12 @@ export const fetchAllUserInfo = () => async dispatch => {
   try {
     const res = await axios.get('/api/info')
     dispatch(getAllUserInfo(res.data))
-  }
-  catch (err) {
+  } catch (err) {
     console.error(err)
   }
 }
 
-export const fetchUserInfo = (userId) => async dispatch => {
+export const fetchUserInfo = userId => async dispatch => {
   try {
     const res = await axios.get(`/api/info/${userId}`)
     dispatch(getUserInfo(res.data || defaultUser))
@@ -47,7 +46,8 @@ export const fetchUserInfo = (userId) => async dispatch => {
 
 export const createUserInfo = (info, userId) => dispatch => {
   console.log('here is the userId: ', userId)
-  axios.post('/api/info', info, userId)
+  axios
+    .post('/api/info', info, userId)
     .then(res => {
       console.log('createUserInfo res: ', res)
       dispatch(addUserInfo(res.data))
@@ -56,7 +56,8 @@ export const createUserInfo = (info, userId) => dispatch => {
 }
 
 export const changeUserInfo = (info, userId) => dispatch => {
-  axios.put(`/api/info/${userId}`, info)
+  axios
+    .put(`/api/info/${userId}`, info)
     .then(res => {
       console.log('put response: ', res)
       dispatch(updateUserInfo(res.data))
@@ -68,7 +69,7 @@ export const changeUserInfo = (info, userId) => dispatch => {
 /**
  * REDUCER
  */
-export default function (state = defaultUser, action) {
+export default function(state = defaultUser, action) {
   switch (action.type) {
     case GET_ALL_USER_INFO:
       return action.data

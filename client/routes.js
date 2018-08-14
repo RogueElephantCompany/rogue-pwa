@@ -1,6 +1,6 @@
-import React, {Component, Fragment} from 'react'
-import {connect} from 'react-redux'
-import {withRouter, Route, Switch} from 'react-router-dom'
+import React, { Component, Fragment } from 'react'
+import { connect } from 'react-redux'
+import { withRouter, Route, Switch } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {
@@ -14,7 +14,7 @@ import {
   PreviousAppointments,
   AllRepairs
 } from './components'
-import {me} from './store'
+import { me } from './store'
 
 const PageWrapper = styled.div`
   height: calc(100vh - 60px);
@@ -32,7 +32,7 @@ class Routes extends Component {
   }
 
   render() {
-    const {isLoggedIn, isAdmin} = this.props
+    const { isLoggedIn, isAdmin } = this.props
     return (
       <PageWrapper>
         <Switch>

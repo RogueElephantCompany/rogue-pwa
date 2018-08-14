@@ -1,9 +1,9 @@
-import React, {Fragment} from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import styled from 'styled-components'
-import {Link} from 'react-router-dom'
-import {logout} from '../store'
+import { Link } from 'react-router-dom'
+import { logout } from '../store'
 
 const Nav = styled.nav`
   display: flex;
@@ -19,7 +19,7 @@ const Nav = styled.nav`
   align-items: center;
   background: #1e77b4;
 `
-const Navbar = ({handleClick, isLoggedIn, isAdmin}) => (
+const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => (
   <Nav>
     {isLoggedIn ? (
       <Fragment>

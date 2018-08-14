@@ -1,10 +1,10 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import styled from 'styled-components'
 
 import PropTypes from 'prop-types'
-import {auth} from '../store'
-import {Input, Button, Form} from './common/ui'
+import { auth } from '../store'
+import { Input, Button, Form } from './common/ui'
 
 const FormWrapper = styled.div`
   width: 100%;
@@ -22,7 +22,7 @@ const LoginHeader = styled.h1`
 /**
  * COMPONENT
  */
-const AuthForm = ({name, displayName, handleSubmit, error}) => (
+const AuthForm = ({ name, displayName, handleSubmit, error }) => (
   <FormWrapper>
     <LoginHeader>{displayName === 'Login' ? 'Login' : 'Sign Up'}</LoginHeader>
     <Form onSubmit={handleSubmit} name={name}>
@@ -33,7 +33,12 @@ const AuthForm = ({name, displayName, handleSubmit, error}) => (
       {/* <label htmlFor="password">
           <>Password</>
         </label> */}
-      <Input name="password" color="#dbdbdb" type="password" placeholder="PASSWORD" />
+      <Input
+        name="password"
+        color="#dbdbdb"
+        type="password"
+        placeholder="PASSWORD"
+      />
       <Button primary wide loose type="submit" content={displayName} />
       {error && error.response && <div> {error.response.data} </div>}
     </Form>

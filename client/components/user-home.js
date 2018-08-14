@@ -39,17 +39,17 @@ class UserHome extends Component {
           <button
             className="home-button"
             type="submit"
-            onClick={this.launchCall}>
-            <img className="button-icon" src="/images/phone.png"
-              alt="image" />
+            onClick={this.launchCall}
+          >
+            <img className="button-icon" src="/images/phone.png" alt="image" />
             <div className="centered">{`Call ${companyName}`}</div>
           </button>
           <button
             className="home-button"
             type="submit"
-            onClick={this.launchPreviousAppointments}>
-            <img className="button-icon" src="/images/van3.png"
-              alt="image" />
+            onClick={this.launchPreviousAppointments}
+          >
+            <img className="button-icon" src="/images/van3.png" alt="image" />
             <div className="centered">Past Repairs</div>
           </button>
         </div>
@@ -57,18 +57,26 @@ class UserHome extends Component {
           <button
             className="home-button"
             type="submit"
-            onClick={this.launchSchedule}>
-            <img className="button-icon" src="/images/calendar.png"
-              alt="image" />
+            onClick={this.launchSchedule}
+          >
+            <img
+              className="button-icon"
+              src="/images/calendar.png"
+              alt="image"
+            />
             <div className="centered">Schedule Appointment</div>
           </button>
           <button
             className="home-button"
             id="info-button"
             type="submit"
-            onClick={this.launchInfo}>
-            <img className="button-icon" src="/images/profile.png"
-              alt="image" />
+            onClick={this.launchInfo}
+          >
+            <img
+              className="button-icon"
+              src="/images/profile.png"
+              alt="image"
+            />
             <div className="centered">Update Info</div>
           </button>
         </div>
