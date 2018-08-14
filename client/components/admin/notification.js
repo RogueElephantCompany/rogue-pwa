@@ -8,14 +8,15 @@ const Notification = props => {
   }
 
   const rejectCall = sessionId => {
-    socket.emit('reject-call', { sessionId: sessionId })
+    socket.emit('reject-call', {sessionId: sessionId})
     props.removeCall(sessionId)
   }
 
   return (
     <div className="notification">
       <p>You have a video call</p>
-      <p>{`from ${props.email}`}</p>
+      <p>{`from ${props.user.firstName} ${props.user.lastName}`}</p>
+      <p>{`${props.email}`}</p>
       <button
         className="invite-button"
         type="submit"

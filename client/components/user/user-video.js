@@ -6,6 +6,7 @@ import {Button} from 'semantic-ui-react'
 import socket from '../../socket'
 import history from '../../history'
 import {ChatButtons} from '../index'
+import {fetchUserInfo} from '../../store'
 
 const {apiKey} = tokbox
 
@@ -19,12 +20,12 @@ class VideoChat extends Component {
   }
 
   startVideo = () => {
-    const {user} = this.props
-    console.log(this.props)
+    const {user, userInfo} = this.props
     socket.emit('invite', {
       sessionId: this.props.sessionId,
       roomId: this.props.roomId,
-      email: user.email
+      email: user.email,
+      user: userInfo
     })
     this.setState({
       joinChat: true,
@@ -54,6 +55,11 @@ class VideoChat extends Component {
     } else {
       this.setState({facingMode: 'user'})
     }
+  }
+
+  componentDidMount() {
+    const {getUserInfo, user} = this.props
+    getUserInfo(user.id)
   }
 
   componentWillUnmount() {
@@ -236,10 +242,18 @@ class VideoChat extends Component {
   }
 }
 
-const mapState = state => ({
+const mapState = state => {
   // console.log(state)
-  facingMode: state.facingMode
+  return {
+    facingMode: state.facingMode,
+    user: state.user,
+    userInfo: state.userInfo[0]
+  }
+}
+
+const mapDispatch = dispatch => ({
+  getUserInfo: id => dispatch(fetchUserInfo(id))
 })
 
-export default connect(mapState)(VideoChat)
+export default connect(mapState, mapDispatch)(VideoChat)
 // export default VideoChat
