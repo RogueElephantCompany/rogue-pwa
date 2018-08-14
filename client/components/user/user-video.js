@@ -46,22 +46,6 @@ class VideoChat extends Component {
     history.push('/home')
   }
 
-  toggleMyAudio = () => {
-    this.setState(prevState => ({myAudioOn: !prevState.myAudioOn}))
-  }
-
-  toggleMyVideo = () => {
-    this.setState(prevState => ({
-      myVideoOn: !prevState.myVideoOn
-    }))
-  }
-
-  toggleAllAudio = () => {
-    this.setState(prevState => ({
-      allAudioOn: !prevState.allAudioOn
-    }))
-  }
-
   flipCamera = () => {
     const {facingMode} = this.state
     console.log(facingMode)

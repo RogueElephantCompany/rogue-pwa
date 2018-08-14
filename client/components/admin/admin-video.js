@@ -20,24 +20,6 @@ class Video extends Component {
     }))
   }
 
-  toggleMyAudio = () => {
-    this.setState(prevState => ({
-      myAudioOn: !prevState.myAudioOn
-    }))
-  }
-
-  toggleMyVideo = () => {
-    this.setState(prevState => ({
-      myVideoOn: !prevState.myVideoOn
-    }))
-  }
-
-  toggleAllAudio = () => {
-    this.setState(prevState => ({
-      allAudioOn: !prevState.allAudioOn
-    }))
-  }
-
   render() {
     return (
       <Fragment>
