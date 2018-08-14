@@ -1,9 +1,9 @@
-import React, { Component, Fragment } from 'react'
-import { Button } from 'semantic-ui-react'
-import { OTSession, OTPublisher, OTStreams, OTSubscriber } from 'opentok-react'
+import React, {Component, Fragment} from 'react'
+import {Button} from 'semantic-ui-react'
+import {OTSession, OTPublisher, OTStreams, OTSubscriber} from 'opentok-react'
 import tokbox from '../../tokboxConfig'
-const { apiKey } = tokbox
-import { ChatButtons } from '../index'
+const {apiKey} = tokbox
+import {ChatButtons} from '../index'
 
 class Video extends Component {
   state = {
@@ -54,9 +54,15 @@ class Video extends Component {
                   myAudioOn={this.state.myAudioOn}
                   myVideoOn={this.state.myVideoOn}
                   allAudioOn={this.state.allAudioOn}
-                  toggleMyAudio={this.toggleMyAudio}
-                  toggleMyVideo={this.toggleMyVideo}
-                  toggleAllAudio={this.toggleAllAudio}
+                  toggleMyAudio={() =>
+                    this.setState(s => ({myAudioOn: !s.myAudioOn}))
+                  }
+                  toggleMyVideo={() =>
+                    this.setState(s => ({myVideoOn: !s.myVideoOn}))
+                  }
+                  toggleAllAudio={() =>
+                    this.setState(s => ({allAudioOn: !s.allAudioOn}))
+                  }
                 />
                 <OTPublisher
                   properties={{

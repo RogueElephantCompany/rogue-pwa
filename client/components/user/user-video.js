@@ -1,13 +1,13 @@
-import React, { Component, Fragment } from 'react'
-import { connect } from 'react-redux'
-import { OTSession, OTPublisher, OTStreams, OTSubscriber } from 'opentok-react'
+import React, {Component, Fragment} from 'react'
+import {connect} from 'react-redux'
+import {OTSession, OTPublisher, OTStreams, OTSubscriber} from 'opentok-react'
 import tokbox from '../../tokboxConfig'
-import { Button } from 'semantic-ui-react'
+import {Button} from 'semantic-ui-react'
 import socket from '../../socket'
 import history from '../../history'
-import { ChatButtons } from '../index'
+import {ChatButtons} from '../index'
 
-const { apiKey } = tokbox
+const {apiKey} = tokbox
 
 class VideoChat extends Component {
   state = {
@@ -19,7 +19,7 @@ class VideoChat extends Component {
   }
 
   startVideo = () => {
-    const { user } = this.props
+    const {user} = this.props
     console.log(this.props)
     socket.emit('invite', {
       sessionId: this.props.sessionId,
@@ -47,7 +47,7 @@ class VideoChat extends Component {
   }
 
   toggleMyAudio = () => {
-    this.setState(prevState => ({ myAudioOn: !prevState.myAudioOn }))
+    this.setState(prevState => ({myAudioOn: !prevState.myAudioOn}))
   }
 
   toggleMyVideo = () => {
@@ -63,12 +63,12 @@ class VideoChat extends Component {
   }
 
   flipCamera = () => {
-    const { facingMode } = this.state
+    const {facingMode} = this.state
     console.log(facingMode)
     if (facingMode === 'user') {
-      this.setState({ facingMode: 'environment' })
+      this.setState({facingMode: 'environment'})
     } else {
-      this.setState({ facingMode: 'user' })
+      this.setState({facingMode: 'user'})
     }
   }
 
@@ -80,7 +80,7 @@ class VideoChat extends Component {
   }
 
   render() {
-    const { facingMode } = this.state
+    const {facingMode} = this.state
     return (
       // <Fragment>
       //   {this.state.joinChat ? (
@@ -195,9 +195,15 @@ class VideoChat extends Component {
                   myAudioOn={this.state.myAudioOn}
                   myVideoOn={this.state.myVideoOn}
                   allAudioOn={this.state.allAudioOn}
-                  toggleMyAudio={this.toggleMyAudio}
-                  toggleMyVideo={this.toggleMyVideo}
-                  toggleAllAudio={this.toggleAllAudio}
+                  toggleMyAudio={() =>
+                    this.setState(s => ({myAudioOn: !s.myAudioOn}))
+                  }
+                  toggleMyVideo={() =>
+                    this.setState(s => ({myVideoOn: !s.myVideoOn}))
+                  }
+                  toggleAllAudio={() =>
+                    this.setState(s => ({allAudioOn: !s.allAudioOn}))
+                  }
                 />
                 <OTPublisher
                   properties={{
