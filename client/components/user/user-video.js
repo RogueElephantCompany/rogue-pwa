@@ -7,7 +7,6 @@ import socket from '../../socket'
 import history from '../../history'
 import { ChatButtons } from '../index'
 
-
 const { apiKey } = tokbox
 
 class VideoChat extends Component {
@@ -42,15 +41,13 @@ class VideoChat extends Component {
       joinChat: false,
       myAudioOn: false,
       myVideoOn: false,
-      allAudioOn: false,
+      allAudioOn: false
     })
     history.push('/home')
   }
 
   toggleMyAudio = () => {
-    this.setState(prevState => ({
-      myAudioOn: !prevState.myAudioOn
-    }))
+    this.setState(prevState => ({ myAudioOn: !prevState.myAudioOn }))
   }
 
   toggleMyVideo = () => {
@@ -69,10 +66,8 @@ class VideoChat extends Component {
     const { facingMode } = this.state
     console.log(facingMode)
     if (facingMode === 'user') {
-      this.setState({ facingMode: 'environment' }
-      )
-    }
-    else {
+      this.setState({ facingMode: 'environment' })
+    } else {
       this.setState({ facingMode: 'user' })
     }
   }
@@ -86,16 +81,111 @@ class VideoChat extends Component {
 
   render() {
     const { facingMode } = this.state
-    // console.log('video props: ', this.props)
     return (
+      // <Fragment>
+      //   {this.state.joinChat ? (
+      //     <div className="row">
+      //       {/* <button type="submit" onClick={() => this.flipCamera()}>
+      //           {facingMode === 'environment' ? 'Back Camera' : 'Front Camera'}
+      //         </button> */}
+      //       <div>
+      //         <OTSession
+      //           apiKey={apiKey}
+      //           sessionId={this.props.sessionId}
+      //           token={this.props.token}
+      //           onError={err => console.log(err)}
+      //         >
+      //           <ChatButtons
+      //             myAudioOn={this.state.myAudioOn}
+      //             myVideoOn={this.state.myVideoOn}
+      //             allAudioOn={this.state.allAudioOn}
+      //             toggleMyAudio={this.toggleMyAudio}
+      //             toggleMyVideo={this.toggleMyVideo}
+      //             toggleAllAudio={this.toggleAllAudio}
+      //           />
+      //           <div className="video-screen">
+      //             <OTPublisher
+      //               properties={{
+      //                 width: 100,
+      //                 height: 100,
+      //                 publishAudio: this.state.myAudioOn,
+      //                 publishVideo: this.state.myVideoOn,
+      //                 name: this.props.guestName,
+      //                 showControls: false,
+      //                 facingMode: this.state.facingMode
+      //               }}
+      //               eventHandler={{
+      //                 cycleVideo: this.flipCamera
+      //               }}
+      //             />
+      //           </div>
+      //           <OTStreams>
+      //             <OTSubscriber
+      //               properties={{
+      //                 width: 400,
+      //                 height: 400,
+      //                 subscribeToAudio: this.state.allAudioOn,
+      //                 subscribeToVideo: true
+      //               }}
+      //             />
+      //           </OTStreams>
+      //         </OTSession>
+      //       </div>
+      //       <div>
+      //         <Button secondary type="submit" onClick={this.endVideo} content="End Video Chat" />
+      //       </div>
+      //     </div>
+      //   ) : (
+      //       <div>
+      //         {/* <button type="submit" onClick={() => this.flipCamera()}>
+      //             <OTPublisher
+      //               properties={{
+      //                 width: 100,
+      //                 height: 100,
+      //                 publishAudio: this.state.myAudioOn,
+      //                 publishVideo: this.state.myVideoOn,
+      //                 name: this.props.guestName,
+      //                 showControls: false,
+      //                 facingMode: this.state.facingMode
+      //               }}
+      //               eventHandler={{
+      //                 cycleVideo: this.flipCamera
+      //               }}
+      //             />
+      //             <OTStreams>
+      //               <OTSubscriber
+      //                 properties={{
+      //                   width: 400,
+      //                   height: 400,
+      //                   subscribeToAudio: this.state.allAudioOn,
+      //                   subscribeToVideo: true,
+      //                 }}
+      //               />
+      //             </OTStreams>
+      //           </OTSession>
+      //         </div>
+      //         <div style={{ marginTop: '10px' }}>
+      //           <Button
+      //             secondary
+      //             type="submit"
+      //             onClick={this.endVideo}
+      //             content='End Video Chat' />
+      //         </div>
+      //       </div>
+      //       :
+      //       <div className="row">
+      //         {/* <button type="submit" onClick={() => this.flipCamera()}>
+      //           {facingMode === 'environment' ? 'Back Camera' : 'Front Camera'}
+      //         </button> */}
+      //         <Button primary type="submit" onClick={this.startVideo} content="Start Video Chat" />
+      //       </div>
+      //     )}
+      // </Fragment>
       <Fragment>
         {
           this.state.joinChat ?
             <div className="row">
-              {/* <button type="submit" onClick={() => this.flipCamera()}>
-                {facingMode === 'environment' ? 'Back Camera' : 'Front Camera'}
-              </button> */}
-              <div>
+              <div className="video-screen">
                 <OTSession
                   apiKey={apiKey}
                   sessionId={this.props.sessionId}
@@ -120,9 +210,6 @@ class VideoChat extends Component {
                       showControls: false,
                       facingMode: this.state.facingMode
                     }}
-                    eventHandler={{
-                      cycleVideo: this.flipCamera
-                    }}
                   />
                   <OTStreams>
                     <OTSubscriber
@@ -136,7 +223,7 @@ class VideoChat extends Component {
                   </OTStreams>
                 </OTSession>
               </div>
-              <div style={{ marginTop: '10px' }}>
+              <div>
                 <Button
                   secondary
                   type="submit"
@@ -146,9 +233,6 @@ class VideoChat extends Component {
             </div>
             :
             <div className="row">
-              {/* <button type="submit" onClick={() => this.flipCamera()}>
-                {facingMode === 'environment' ? 'Back Camera' : 'Front Camera'}
-              </button> */}
               <Button primary
                 type="submit"
                 onClick={this.startVideo}
