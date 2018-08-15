@@ -360,3 +360,59 @@ form div {
   text-align: center;
   margin-bottom: 10px;
 }
+
+/* Calendar */
+
+/* #calendar {
+  border: black solid 1px;
+} */
+
+#calendar-header {
+  background-color: dodgerblue;
+  width: 100vw;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-bottom: black solid 1px;
+  /* text-align: center; */
+}
+
+.day-name {
+  color: white;
+  text-align: center;
+  margin: 2px 0px 2px 0px;
+  padding: 0px;
+  width: 11.5%;
+}
+
+.time-box {
+  background-color: white;
+  height: 40px;
+  /* width: 11.5%; */
+  margin: 0px 0px 0px 0px;
+  border: gray dashed 1px;
+}
+
+.time-box h4 {
+  margin: 0px 0px 0px 0px;
+}
+
+.calendar-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.appt-box {
+  background-color: white;
+  text-align: center;
+  height: 40px;
+  /* width: 11.5%; */
+  margin: 0px 0px 0px 0px;
+  border: gray dashed 1px;
+}
