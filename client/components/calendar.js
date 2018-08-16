@@ -1,23 +1,23 @@
-import React, {Component, Fragment} from 'react'
-import {connect} from 'react-redux'
-import {dayList, timeList} from '../constants'
+import React, { Component, Fragment } from 'react'
+import { connect } from 'react-redux'
+import { dayList, timeList } from '../constants'
 
 const fetchAppts = () => {
   console.log('I will find the appts')
-  return {date: 'today', time: 'now', type: 'big'}
+  return { date: 'today', time: 'now', type: 'big' }
 }
 
 class Calendar extends Component {
   state = {
     apptList: [
-      {day: 'Sun', date: 'Aug 12 2018', start: '8AM', end: '9AM'},
-      {day: 'Sun', date: 'Aug 12 2018', start: '10AM', end: '12PM'},
-      {day: 'Mon', date: 'Aug 13 2018', start: '9AM', end: '11AM'}
-    ]
+      { day: 'Sun', date: 'Aug 12 2018', start: '8AM', end: '9AM' },
+      { day: 'Sun', date: 'Aug 12 2018', start: '10AM', end: '12PM' },
+      { day: 'Mon', date: 'Aug 13 2018', start: '9AM', end: '11AM' },
+    ],
   }
 
   componentDidMount() {
-    const {getAppts} = this.props
+    const { getAppts } = this.props
     console.log(getAppts())
     // getAppts()
   }
@@ -32,7 +32,7 @@ class Calendar extends Component {
   }
 
   render() {
-    const {apptList} = this.state
+    const { apptList } = this.state
     const sunday = apptList.filter(day => day.day === 'Sun')
     this.fillInAppts(sunday)
     return (
@@ -71,7 +71,7 @@ class Calendar extends Component {
 const mapState = state => state
 
 const mapDispatch = dispatch => ({
-  getAppts: () => dispatch(fetchAppts())
+  getAppts: () => dispatch(fetchAppts()),
 })
 
 export default connect(mapState, mapDispatch)(Calendar)

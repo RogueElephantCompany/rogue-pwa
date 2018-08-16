@@ -17,8 +17,8 @@ router.get('/:userId', async (req, res, next) => {
   try {
     const info = await Info.findAll({
       where: {
-        userId: userId
-      }
+        userId: userId,
+      },
     })
     res.json(info)
   } catch (err) {
@@ -44,7 +44,7 @@ router.put('/:userId', (req, res, next) => {
     city,
     state,
     zip,
-    phone
+    phone,
   } = req.body
   Info.update(
     {
@@ -55,7 +55,7 @@ router.put('/:userId', (req, res, next) => {
       city: city,
       state: state,
       zip: zip,
-      phone: phone
+      phone: phone,
     },
     { where: { userId: req.user.id } }
   )

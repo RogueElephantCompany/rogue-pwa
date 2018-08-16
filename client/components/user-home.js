@@ -8,7 +8,7 @@ import { companyName } from '../constants'
  */
 class UserHome extends Component {
   state = {
-    roomId: ''
+    roomId: '',
   }
 
   launchCall = () => {
@@ -89,7 +89,7 @@ class UserHome extends Component {
  * CONTAINER
  */
 const mapState = state => ({
-  email: state.user.email
+  email: state.user.email,
 })
 
 export default connect(mapState)(UserHome)

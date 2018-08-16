@@ -15,7 +15,7 @@ class Chat extends Component {
     sessionId: '',
     token: '',
     blankVars: true,
-    rejected: false
+    rejected: false,
   }
 
   componentDidMount() {
@@ -42,7 +42,7 @@ class Chat extends Component {
         token: token,
         sessionId: sessionId,
         roomId: url,
-        blankVars: false
+        blankVars: false,
       })
     })
   }
@@ -73,7 +73,7 @@ class Chat extends Component {
 }
 
 const mapState = state => ({
-  user: state.user
+  user: state.user,
 })
 
 // export default Chat

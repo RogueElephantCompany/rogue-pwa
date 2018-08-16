@@ -54,7 +54,7 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => (
 const mapState = state => {
   return {
     isLoggedIn: !!state.user.id,
-    isAdmin: state.user.isAdmin
+    isAdmin: state.user.isAdmin,
   }
 }
 
@@ -62,7 +62,7 @@ const mapDispatch = dispatch => {
   return {
     handleClick() {
       dispatch(logout())
-    }
+    },
   }
 }
 
@@ -73,5 +73,5 @@ export default connect(mapState, mapDispatch)(Navbar)
  */
 Navbar.propTypes = {
   handleClick: PropTypes.func.isRequired,
-  isLoggedIn: PropTypes.bool.isRequired
+  isLoggedIn: PropTypes.bool.isRequired,
 }

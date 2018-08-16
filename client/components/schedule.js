@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import Calendar from './calendar'
-import {url} from '../../secrets'
+import { url } from '../../secrets'
 // import {render} from 'react-dom'
 // import moment from 'moment'
 
@@ -11,7 +11,7 @@ import {url} from '../../secrets'
 
 class Schedule extends Component {
   state = {
-    now: ''
+    now: '',
   }
 
   render() {
@@ -25,7 +25,7 @@ class Schedule extends Component {
             width: '100vw',
             height: '800px',
             frameBorder: '0',
-            scrolling: 'no'
+            scrolling: 'no',
           }}
         />
         {/* <BigCalendar style={{height: '420px'}} events={[]} /> */}

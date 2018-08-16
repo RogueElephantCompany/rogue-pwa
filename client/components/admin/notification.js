@@ -8,7 +8,7 @@ const Notification = props => {
   }
 
   const rejectCall = sessionId => {
-    socket.emit('reject-call', {sessionId: sessionId})
+    socket.emit('reject-call', { sessionId: sessionId })
     props.removeCall(sessionId)
   }
 

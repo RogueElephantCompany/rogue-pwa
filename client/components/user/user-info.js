@@ -15,7 +15,7 @@ class UserInfo extends Component {
     state: 'AL',
     zip: '',
     phone: '',
-    notLoaded: true
+    notLoaded: true,
   }
 
   componentDidMount() {
@@ -59,7 +59,7 @@ class UserInfo extends Component {
       city,
       state,
       zip,
-      phone
+      phone,
     } = userInfo
     this.setState({
       firstName,
@@ -70,7 +70,7 @@ class UserInfo extends Component {
       state,
       zip,
       phone,
-      notLoaded: false
+      notLoaded: false,
     })
   }
 
@@ -186,7 +186,7 @@ const mapState = state => state
 const mapDispatch = dispatch => ({
   createData: (data, userId) => dispatch(createUserInfo(data, userId)),
   getUserInfo: userId => dispatch(fetchUserInfo(userId)),
-  updateUserData: (data, userId) => dispatch(changeUserInfo(data, userId))
+  updateUserData: (data, userId) => dispatch(changeUserInfo(data, userId)),
 })
 
 export default connect(mapState, mapDispatch)(UserInfo)

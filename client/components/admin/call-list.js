@@ -1,16 +1,16 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import Notification from './notification'
 import socket from '../../socket'
 
-const sampleCalls = [{sessionId: 123}, {sessionId: 234}, {sessionId: 456}]
+const sampleCalls = [{ sessionId: 123 }, { sessionId: 234 }, { sessionId: 456 }]
 
 class CallList extends Component {
   state = {
-    calls: [] /*sampleCalls*/
+    calls: [] /*sampleCalls*/,
   }
 
   newCall = data => {
-    this.setState(prevState => ({calls: [...prevState.calls, data]}))
+    this.setState(prevState => ({ calls: [...prevState.calls, data] }))
   }
 
   componentDidMount() {
@@ -24,7 +24,7 @@ class CallList extends Component {
   }
 
   removeCall = sessionId => {
-    const {calls} = this.state
+    const { calls } = this.state
     let copy = calls.slice(0)
     let idx
     for (let i = 0; i < copy.length; i++) {
@@ -35,13 +35,13 @@ class CallList extends Component {
     }
     if (idx >= 0) {
       copy.splice(idx, 1)
-      this.setState({calls: copy})
+      this.setState({ calls: copy })
     }
   }
 
   render() {
-    const {calls} = this.state
-    const {answerCall} = this.props
+    const { calls } = this.state
+    const { answerCall } = this.props
     return (
       <div className="call-list">
         {calls.map((call, idx) => (

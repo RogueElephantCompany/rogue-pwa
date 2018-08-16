@@ -6,7 +6,7 @@ class AllRepairs extends Component {
   state = {
     searchBar: '',
     selected: '',
-    year: '2018'
+    year: '2018',
   }
 
   componentDidMount() {
@@ -103,7 +103,7 @@ class AllRepairs extends Component {
               style={{
                 textAlign: 'center',
                 color: 'rgb(21, 39, 155)',
-                marginTop: '10px'
+                marginTop: '10px',
               }}
             >
               {' '}
@@ -145,7 +145,7 @@ const mapState = state => state
 
 const mapDispatch = dispatch => ({
   getPreviousAppts: userId => dispatch(fetchUserRepairs(userId)),
-  getAllRepairs: () => dispatch(fetchAllRepairs())
+  getAllRepairs: () => dispatch(fetchAllRepairs()),
 })
 
 export default connect(mapState, mapDispatch)(AllRepairs)

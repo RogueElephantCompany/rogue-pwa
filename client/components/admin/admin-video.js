@@ -1,22 +1,22 @@
-import React, {Component, Fragment} from 'react'
-import {Button} from 'semantic-ui-react'
-import {OTSession, OTPublisher, OTStreams, OTSubscriber} from 'opentok-react'
+import React, { Component, Fragment } from 'react'
+import { Button } from 'semantic-ui-react'
+import { OTSession, OTPublisher, OTStreams, OTSubscriber } from 'opentok-react'
 import tokbox from '../../tokboxConfig'
-const {apiKey} = tokbox
-import {ChatButtons} from '../index'
+const { apiKey } = tokbox
+import { ChatButtons } from '../index'
 
 class Video extends Component {
   state = {
     joinChat: false,
     myAudioOn: false,
     myVideoOn: true,
-    allAudioOn: true
+    allAudioOn: true,
   }
 
   joinVideo = () => {
     this.setState(prevState => ({
       joinChat: !prevState.joinChat,
-      myAudioOn: !prevState.myAudioOn
+      myAudioOn: !prevState.myAudioOn,
     }))
   }
 
@@ -37,13 +37,13 @@ class Video extends Component {
                   myVideoOn={this.state.myVideoOn}
                   allAudioOn={this.state.allAudioOn}
                   toggleMyAudio={() =>
-                    this.setState(s => ({myAudioOn: !s.myAudioOn}))
+                    this.setState(s => ({ myAudioOn: !s.myAudioOn }))
                   }
                   toggleMyVideo={() =>
-                    this.setState(s => ({myVideoOn: !s.myVideoOn}))
+                    this.setState(s => ({ myVideoOn: !s.myVideoOn }))
                   }
                   toggleAllAudio={() =>
-                    this.setState(s => ({allAudioOn: !s.allAudioOn}))
+                    this.setState(s => ({ allAudioOn: !s.allAudioOn }))
                   }
                 />
                 <OTPublisher
@@ -53,7 +53,7 @@ class Video extends Component {
                     publishAudio: this.state.myAudioOn,
                     publishVideo: this.state.myVideoOn,
                     name: this.props.guestName,
-                    showControls: false
+                    showControls: false,
                   }}
                 />
                 <OTStreams>
@@ -62,7 +62,7 @@ class Video extends Component {
                       width: 400,
                       height: 400,
                       subscribeToAudio: this.state.allAudioOn,
-                      subscribeToVideo: true
+                      subscribeToVideo: true,
                     }}
                   />
                 </OTStreams>

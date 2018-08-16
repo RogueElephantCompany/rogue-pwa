@@ -10,7 +10,7 @@ const { apiKey, secret } = tokbox
 class Admin extends Component {
   state = {
     token: '',
-    sessionId: ''
+    sessionId: '',
   }
 
   answerCall = data => {

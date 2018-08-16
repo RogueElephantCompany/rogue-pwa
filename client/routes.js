@@ -12,7 +12,7 @@ import {
   Admin,
   Schedule,
   PreviousAppointments,
-  AllRepairs
+  AllRepairs,
 } from './components'
 import { me } from './store'
 
@@ -70,13 +70,13 @@ const mapState = state => ({
   // Being 'logged in' for our purposes will be defined has having a state.user that has a truthy id.
   // Otherwise, state.user will be an empty object, and state.user.id will be falsey
   isLoggedIn: !!state.user.id,
-  isAdmin: state.user.isAdmin
+  isAdmin: state.user.isAdmin,
 })
 
 const mapDispatch = dispatch => ({
   loadInitialData() {
     dispatch(me())
-  }
+  },
 })
 
 // The `withRouter` wrapper makes sure that updates are not blocked
@@ -88,5 +88,5 @@ export default withRouter(connect(mapState, mapDispatch)(Routes))
  */
 Routes.propTypes = {
   loadInitialData: PropTypes.func.isRequired,
-  isLoggedIn: PropTypes.bool.isRequired
+  isLoggedIn: PropTypes.bool.isRequired,
 }

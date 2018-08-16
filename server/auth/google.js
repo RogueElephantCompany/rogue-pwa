@@ -24,7 +24,7 @@ if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
   const googleConfig = {
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: process.env.GOOGLE_CALLBACK
+    callbackURL: process.env.GOOGLE_CALLBACK,
   }
 
   const strategy = new GoogleStrategy(
@@ -36,7 +36,7 @@ if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
 
       User.findOrCreate({
         where: { googleId },
-        defaults: { name, email }
+        defaults: { name, email },
       })
         .then(([user]) => done(null, user))
         .catch(done)
@@ -51,7 +51,7 @@ if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
     '/callback',
     passport.authenticate('google', {
       successRedirect: '/',
-      failureRedirect: '/login'
+      failureRedirect: '/login',
     })
   )
 }

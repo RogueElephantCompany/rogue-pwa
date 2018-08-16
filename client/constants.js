@@ -52,7 +52,7 @@ export const states = [
   'WA',
   'WV',
   'WI',
-  'WY'
+  'WY',
 ]
 
 export const dayList = ['', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
@@ -68,7 +68,7 @@ export const timeList = [
   '4PM',
   '5PM',
   '6PM',
-  '7PM'
+  '7PM',
 ]
 
 export const calendarDates = {}

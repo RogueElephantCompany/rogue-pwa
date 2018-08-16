@@ -11,7 +11,7 @@ import { fetchUserRepairs } from '../../store'
 class PreviousAppointments extends Component {
   state = {
     // priorAppts: prevAppts,
-    selected: ''
+    selected: '',
   }
 
   componentDidMount() {
@@ -64,7 +64,7 @@ class PreviousAppointments extends Component {
               style={{
                 textAlign: 'center',
                 color: 'rgb(21, 39, 155)',
-                marginTop: '10px'
+                marginTop: '10px',
               }}
             >
               {' '}
@@ -104,7 +104,7 @@ class PreviousAppointments extends Component {
 const mapState = state => state
 
 const mapDispatch = dispatch => ({
-  getPreviousAppts: userId => dispatch(fetchUserRepairs(userId))
+  getPreviousAppts: userId => dispatch(fetchUserRepairs(userId)),
 })
 
 export default connect(mapState, mapDispatch)(PreviousAppointments)
