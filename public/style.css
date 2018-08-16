@@ -366,16 +366,18 @@ form div {
 /* #calendar {
   border: black solid 1px;
 } */
+#calendar-name {
+  margin: 20px 0px 10px 0px;
+  text-align: center;
+  color: white;
+}
 
 #calendar-header {
-  background-color: dodgerblue;
+  background-color: #1e77b4;
   width: 100vw;
   height: 30px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  border-bottom: black solid 1px;
-  /* text-align: center; */
 }
 
 .day-name {
@@ -383,13 +385,12 @@ form div {
   text-align: center;
   margin: 2px 0px 2px 0px;
   padding: 0px;
-  width: 11.5%;
+  width: 12.5%;
 }
 
 .time-box {
   background-color: white;
   height: 40px;
-  /* width: 11.5%; */
   margin: 0px 0px 0px 0px;
   border: gray dashed 1px;
 }
@@ -401,6 +402,7 @@ form div {
 .calendar-col {
   display: flex;
   flex-direction: column;
+  width: 12.5%;
 }
 
 .calendar-row {
@@ -412,7 +414,15 @@ form div {
   background-color: white;
   text-align: center;
   height: 40px;
-  /* width: 11.5%; */
   margin: 0px 0px 0px 0px;
   border: gray dashed 1px;
 }
+
+.half-box {
+  background-color: white;
+  text-align: center;
+  height: 20px;
+  margin: 0px 0px 0px 0px;
+  border: gray dashed 1px;
+}
+
