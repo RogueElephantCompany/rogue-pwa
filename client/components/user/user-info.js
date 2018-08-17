@@ -25,6 +25,7 @@ class UserInfo extends Component {
 
   changeTextbox = evt => {
     const { value, name } = evt.target
+    console.log(name, value)
     this.setState({ [name]: value.toUpperCase() })
   }
 
@@ -142,8 +143,8 @@ class UserInfo extends Component {
                 name="city"
                 onChange={this.changeTextbox}
               />
-              <h5>STATE</h5>
-              <Dropdown
+              {/* <h5>STATE</h5> */}
+              {/* <Dropdown
                 name="state"
                 search
                 selection
@@ -151,7 +152,21 @@ class UserInfo extends Component {
                 options={states.map(state => ({ text: state, value: state }))}
                 onChange={this.changeTextbox}
                 value={this.state.state}
-              />
+              /> */}
+              <div className="input-line" id="state-line">
+                <h5>STATE</h5>
+                <select
+                  name="state"
+                  onChange={this.changeTextbox}
+                  value={this.state.state}
+                >
+                  {states.map(state => (
+                    <option key={state} value={state}>
+                      {state}
+                    </option>
+                  ))}
+                </select>
+              </div>
               <Input
                 type="text"
                 placeholder={

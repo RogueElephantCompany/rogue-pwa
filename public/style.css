@@ -254,6 +254,7 @@ form div {
 .button-icon {
   height: 100px;
   width: auto;
+  max-width: 95%;
   opacity: 0.5;
 }
 
