@@ -6,7 +6,7 @@ const sampleCalls = [{ sessionId: 123 }, { sessionId: 234 }, { sessionId: 456 }]
 
 class CallList extends Component {
   state = {
-    calls: [] /*sampleCalls*/,
+    calls: [] /*sampleCalls*/
   }
 
   newCall = data => {
@@ -23,35 +23,22 @@ class CallList extends Component {
     })
   }
 
-  removeCall = sessionId => {
-    const { calls } = this.state
-    let copy = calls.slice(0)
-    let idx
-    for (let i = 0; i < copy.length; i++) {
-      if (copy[i].sessionId === sessionId) {
-        idx = i
-        break
-      }
-    }
-    if (idx >= 0) {
-      copy.splice(idx, 1)
-      this.setState({ calls: copy })
-    }
-  }
+  removeCall = sessionId =>
+    this.setState(s => ({ calls: s.calls.filter(call => call.sessionId !== sessionId) }))
 
   render() {
     const { calls } = this.state
     const { answerCall } = this.props
     return (
       <div className="call-list">
-        {calls.map((call, idx) => (
-          <div key={call.sessionId}>
+        {calls.map(({ sessionId, email, user }, idx) => (
+          <div key={sessionId}>
             <Notification
-              sessionId={call.sessionId}
+              sessionId={sessionId}
               answerCall={answerCall}
               removeCall={this.removeCall}
-              email={call.email}
-              user={call.user}
+              email={email}
+              user={user}
               callIndex={idx}
             />
           </div>

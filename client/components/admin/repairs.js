@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import isThisYear from 'date-fns/is_this_year'
 import { fetchUserRepairs, fetchAllRepairs } from '../../store'
 
 class AllRepairs extends Component {
   state = {
     searchBar: '',
-    selected: '',
-    year: '2018',
+    selected: ''
   }
 
   componentDidMount() {
@@ -41,35 +41,23 @@ class AllRepairs extends Component {
     const inputVaue = this.state.searchBar.toLowerCase()
     const { repairs } = this.props
     const filteredRepairs = repairs
-      .slice()
-      .reverse()
+      .filter(repair => isThisYear(repair.date))
       .filter(
-        repair => Number(repair.date.slice(-4)) === Number(this.state.year)
+        ({ user: { email }, problem }) =>
+          email.toLowerCase().match(inputVaue) || problem.toLowerCase().match(inputVaue)
       )
-      .filter(prev => {
-        return (
-          prev.user.email.toLowerCase().match(inputVaue) ||
-          prev.problem.toLowerCase().match(inputVaue)
-        )
-      })
     return (
       <div>
-        <h1 style={{ textAlign: 'center', color: 'rgb(21, 39, 155)' }}>
-          Past Repairs{' '}
-        </h1>
+        <h1 style={{ textAlign: 'center', color: 'rgb(21, 39, 155)' }}>Past Repairs </h1>
         <form id="search-component">
-          Input Customer Data Filter
+          <p>Input Customer Data Filter</p>
           <input
             type="text"
             placeholder="Search by Customer Email or Repair Description..."
             onChange={this.handleChange}
             id="searchbar"
           />
-          <select
-            name="year"
-            onChange={this.handleTextboxChange}
-            defaultValue="2018"
-          >
+          <select name="year" onChange={this.handleTextboxChange} defaultValue="2018">
             <option value={2017}>2017</option>
             <option value={2018}>2018</option>
             <option value={2019}>2019</option>
@@ -83,17 +71,17 @@ class AllRepairs extends Component {
             <h2 id="repair-col">Repair</h2>
             <h2 id="cost-col">Cost</h2>
           </div>
-          {filteredRepairs.map(appt => (
+          {filteredRepairs.map(({ date, user: { email }, problem, cost }) => (
             <button
-              key={appt.date}
+              key={date}
               type="submit"
               className="prev-appt"
-              onClick={() => this.seeDetails(appt.date)}
+              onClick={() => this.seeDetails(date)}
             >
-              <h3 className="prev-date">{appt.date}</h3>
-              <h3 className="prev-date">{appt.user.email}</h3>
-              <h3 className="prev-problem">{appt.problem}</h3>
-              <h3 className="prev-cost">{appt.cost}</h3>
+              <h3 className="prev-date">{date}</h3>
+              <h3 className="prev-date">{email}</h3>
+              <h3 className="prev-problem">{problem}</h3>
+              <h3 className="prev-cost">{cost}</h3>
             </button>
           ))}
         </div>
@@ -103,32 +91,26 @@ class AllRepairs extends Component {
               style={{
                 textAlign: 'center',
                 color: 'rgb(21, 39, 155)',
-                marginTop: '10px',
+                marginTop: '10px'
               }}
             >
               {' '}
               Repair Details
             </h1>
             {filteredRepairs
-              .filter(appt => {
-                return appt.date === selected
-              })
-              .map(appt => (
-                <div key={appt.date} className="previous-details">
-                  <h1>Date: {appt.date}</h1>
-                  <h1>Customer: {appt.user.email}</h1>
-                  <h1>Repair: {appt.problem}</h1>
-                  <h1>Appt Length: {appt.apptLength}</h1>
-                  <h1>Technician: {appt.technician}</h1>
-                  <h1>Cost: {appt.cost}</h1>
+              .filter(({ date }) => date === selected)
+              .map(({ date, user: { email }, problem, apptLength, technician, cost }) => (
+                <div key={date} className="previous-details">
+                  <h1>Date: {date}</h1>
+                  <h1>Customer: {email}</h1>
+                  <h1>Repair: {problem}</h1>
+                  <h1>Appt Length: {apptLength}</h1>
+                  <h1>Technician: {technician}</h1>
+                  <h1>Cost: {cost}</h1>
                 </div>
               ))}
             <div style={{ textAlign: 'center', marginTop: '20px' }}>
-              <button
-                id="signin-button"
-                type="submit"
-                onClick={this.hideDetails}
-              >
+              <button id="signin-button" type="submit" onClick={this.hideDetails}>
                 Hide{' '}
               </button>
             </div>
@@ -145,7 +127,7 @@ const mapState = state => state
 
 const mapDispatch = dispatch => ({
   getPreviousAppts: userId => dispatch(fetchUserRepairs(userId)),
-  getAllRepairs: () => dispatch(fetchAllRepairs()),
+  getAllRepairs: () => dispatch(fetchAllRepairs())
 })
 
 export default connect(mapState, mapDispatch)(AllRepairs)
